@@ -8,7 +8,7 @@ module CSOConvertToImage {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "428 317 440 479"
+        geometry = "316 222 440 479"
         sizeHint = "440 479"
         wasOpen = no
       }
@@ -77,7 +77,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 16
+    startSlice = 0
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -99,11 +99,11 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "0 0"
-    plane = "-0.999076187610626 0.0313568376004696 -0.0293896812945604 -49.0228881835938"
+    plane = "-0.999076187610626 0.0313568376004696 -0.0293896812945604 -81.0228881835938"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 700.16504
-    lutWidth = 1722.0177
+    lutCenter = 439.96249
+    lutWidth = 932.8656
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -173,7 +173,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 16
+    startSlice = 0
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -195,11 +195,11 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "0 0"
-    plane = "-0.999076187610626 0.0313568376004696 -0.0293896812945604 -49.0228881835938"
+    plane = "-0.999076187610626 0.0313568376004696 -0.0293896812945604 -81.0228881835938"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1484.1385
-    lutWidth = 4095
+    lutCenter = 439.96249
+    lutWidth = 932.8656
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -367,7 +367,7 @@ module CSOManager {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "501 273 692 565"
+        geometry = "118 140 692 565"
         sizeHint = "692 565"
         wasOpen = no
       }

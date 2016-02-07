@@ -1,0 +1,212 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module LocalImage {
+  internal  {
+    frame = "657 445 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "635 438 424 235"
+        sizeHint = "424 235"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = LocalImage
+    name = $(DemoDataPath)/BrainMultiModal/ProbandT2.dcm
+    autoLoad = TRUE
+  }
+}
+module TestAdd5 {
+  internal  {
+    frame = "605 301 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "844 552 120 6"
+        sizeHint = "6 6"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = TestAdd5
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "757 93 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "986 289 457 593"
+        sizeHint = "457 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageStatistics1
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "445 133 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "87 151 457 595"
+        sizeHint = "457 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageStatistics
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module View2D {
+  internal  {
+    frame = "829 197 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "991 270 400 418"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 -80.721435546875"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 234.91
+    lutWidth = 544.54376
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module View2D {
+  internal  {
+    frame = "637 197 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1060 213 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 -80.721435546875"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 234.91
+    lutWidth = 544.54376
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+connections  {
+  TestAdd5.input0 = LocalImage.outImage
+  ImageStatistics1.input0 = LocalImage.outImage
+  ImageStatistics.input0 = TestAdd5.output0
+  View2D1.inImage = LocalImage.outImage
+  View2D.inImage = TestAdd5.output0
+}
+networkModel = ""
