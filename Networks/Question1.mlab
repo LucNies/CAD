@@ -41,11 +41,11 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "0 0"
-    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 0"
+    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 -80.721435546875"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1
-    lutWidth = 1
+    lutCenter = 234.91
+    lutWidth = 544.54376
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -97,7 +97,7 @@ module View3D {
     colorFactor = "1 1 1"
     camType = TRUE
     camPosition = "-11.3423337936401 -426.973083496094 20.7118396759033"
-    camOrientation = "0.998590290546417 -0.0491165816783905 0.0201261751353741 1.58495557308197"
+    camOrientation = "0.998590290546417 -0.0491165854036808 0.0201261751353741 1.58495557308197"
     initialCameraOrientation = CAMERA_KEEP_AS_IS
     camFar = 514.23724
     camNear = 295.68311
