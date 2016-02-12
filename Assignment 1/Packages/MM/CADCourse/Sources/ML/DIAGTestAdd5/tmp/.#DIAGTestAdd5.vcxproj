@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build"
+     ToolsVersion="4.0"
+     xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup Label="ProjectConfigurations">
+        <ProjectConfiguration Include="Release|x64">
+            <Configuration>Release</Configuration>
+            <Platform>x64</Platform>
+        </ProjectConfiguration>
+        <ProjectConfiguration Include="Debug|x64">
+            <Configuration>Debug</Configuration>
+            <Platform>x64</Platform>
+        </ProjectConfiguration>
+    </ItemGroup>
+    <PropertyGroup Label="Globals">
+        <ProjectGuid>{35831451-8A1A-3D38-88DE-12059C812CB1}</ProjectGuid>
+        <RootNamespace>DIAGTestAdd5</RootNamespace>
+        <Keyword>Qt4VSv1.0</Keyword>
+    </PropertyGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
+         Label="Configuration">
+        <OutputDirectory>tmp\release\obj\</OutputDirectory>
+        <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+        <CharacterSet>NotSet</CharacterSet>
+        <ConfigurationType>DynamicLibrary</ConfigurationType>
+        <IntermediateDirectory>tmp\release\obj\</IntermediateDirectory>
+        <PrimaryOutput>DIAGTestAdd5</PrimaryOutput>
+        <PlatformToolset>v110</PlatformToolset>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
+         Label="Configuration">
+        <OutputDirectory>tmp\debug\obj\</OutputDirectory>
+        <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+        <CharacterSet>NotSet</CharacterSet>
+        <ConfigurationType>DynamicLibrary</ConfigurationType>
+        <IntermediateDirectory>tmp\debug\obj\</IntermediateDirectory>
+        <PrimaryOutput>DIAGTestAdd5</PrimaryOutput>
+        <PlatformToolset>v110</PlatformToolset>
+    </PropertyGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+    <ImportGroup Label="ExtensionSettings"/>
+    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
+         Label="PropertySheets">
+        <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+             Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"/>
+    </ImportGroup>
+    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
+         Label="PropertySheets">
+        <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+             Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"/>
+    </ImportGroup>
+    <PropertyGroup Label="UserMacros"/>
+    <PropertyGroup>
+        <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tmp\release\obj\</OutDir>
+        <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tmp\release\obj\</IntDir>
+        <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DIAGTestAdd5</TargetName>
+        <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+        <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+        <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
+        <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tmp\debug\obj\</OutDir>
+        <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tmp\debug\obj\</IntDir>
+        <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DIAGTestAdd5_d</TargetName>
+        <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+        <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
+    </PropertyGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <ClCompile>
+            <AdditionalIncludeDirectories>c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\SharedIncludes;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLUtilities;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\misc\boost;.;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2012;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <AdditionalOptions>-Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 %(AdditionalOptions)</AdditionalOptions>
+            <AssemblerListingLocation>tmp\release\obj\</AssemblerListingLocation>
+            <BrowseInformation>true</BrowseInformation>
+            <BufferSecurityCheck>true</BufferSecurityCheck>
+            <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+            <DisableSpecificWarnings>4201;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+            <ExceptionHandling>Sync</ExceptionHandling>
+            <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+            <FunctionLevelLinking>true</FunctionLevelLinking>
+            <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+            <IntrinsicFunctions>true</IntrinsicFunctions>
+            <MultiProcessorCompilation>true</MultiProcessorCompilation>
+            <ObjectFileName>tmp\release\obj\</ObjectFileName>
+            <OmitFramePointers>true</OmitFramePointers>
+            <Optimization>Disabled</Optimization>
+            <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=DIAGTestAdd5;MEVIS_64BIT;MEVISLAB_VERSION=205;ML_VERSION_2;BOOST_ALL_DYN_LINK;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;DIAGTESTADD5_EXPORTS;ML_WARN_DEPRECATED;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <PreprocessToFile>false</PreprocessToFile>
+            <ProgramDataBaseFileName>$(OutDir)</ProgramDataBaseFileName>
+            <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+            <RuntimeTypeInfo>true</RuntimeTypeInfo>
+            <StringPooling>true</StringPooling>
+            <SuppressStartupBanner>true</SuppressStartupBanner>
+            <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+            <WarningLevel>Level4</WarningLevel>
+        </ClCompile>
+        <Link>
+            <AdditionalDependencies>ML.lib;MLLinearAlgebra.lib;MLMemoryManager.lib;MLProfilingManager.lib;MLUtilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
+            <AdditionalLibraryDirectories>c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\lib;C:/Users/Luc/Documents/GitHub/CAD/Packages/MM/CADCourse/lib;C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVisLab/Standard/lib;C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVis/Foundation/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+            <DataExecutionPrevention>true</DataExecutionPrevention>
+            <EnableCOMDATFolding>true</EnableCOMDATFolding>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <IgnoreImportLibrary>true</IgnoreImportLibrary>
+            <LinkDLL>true</LinkDLL>
+            <LinkIncremental>false</LinkIncremental>
+            <OptimizeReferences>true</OptimizeReferences>
+            <OutputFile>$(OutDir)DIAGTestAdd5.dll</OutputFile>
+            <RandomizedBaseAddress>true</RandomizedBaseAddress>
+            <SuppressStartupBanner>true</SuppressStartupBanner>
+        </Link>
+        <Midl>
+            <DefaultCharType>Unsigned</DefaultCharType>
+            <EnableErrorChecks>None</EnableErrorChecks>
+            <WarningLevel>0</WarningLevel>
+        </Midl>
+        <ResourceCompile>
+            <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=DIAGTestAdd5;MEVIS_64BIT;MEVISLAB_VERSION=205;ML_VERSION_2;BOOST_ALL_DYN_LINK;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;DIAGTESTADD5_EXPORTS;ML_WARN_DEPRECATED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        </ResourceCompile>
+        <PostBuildEvent>
+            <Command>if not exist &quot;../../../lib&quot; mkdir &quot;../../../lib&quot;
+if exist &quot;../../../lib\updated\DIAGTestAdd5.dll&quot; (
+  echo removing old updated DLL
+  del &quot;../../../lib\updated\DIAGTestAdd5.dll&quot;
+)
+echo copy &quot;$(OutDir)DIAGTestAdd5.dll&quot; &quot;../../../lib\DIAGTestAdd5.dll&quot;
+copy &quot;$(OutDir)DIAGTestAdd5.dll&quot; &quot;../../../lib\DIAGTestAdd5.dll&quot;
+if errorLevel 1 (
+  echo DLL locked, copying to /updated subdir - and removing source file
+  if not exist &quot;../../../lib\updated&quot; mkdir &quot;../../../lib\updated&quot;
+  copy &quot;$(OutDir)DIAGTestAdd5.dll&quot; &quot;../../../lib\updated\DIAGTestAdd5.dll&quot;
+  del &quot;$(OutDir)DIAGTestAdd5.dll&quot;
+)
+echo if exist &quot;$(OutDir)DIAGTestAdd5.pdb&quot; copy &quot;$(OutDir)DIAGTestAdd5.pdb&quot; &quot;../../../lib&quot;
+if exist &quot;$(OutDir)DIAGTestAdd5.pdb&quot; copy &quot;$(OutDir)DIAGTestAdd5.pdb&quot; &quot;../../../lib&quot;
+echo if exist &quot;$(OutDir)DIAGTestAdd5.lib&quot; copy &quot;$(OutDir)DIAGTestAdd5.lib&quot; &quot;../../../lib&quot;
+if exist &quot;$(OutDir)DIAGTestAdd5.lib&quot; copy &quot;$(OutDir)DIAGTestAdd5.lib&quot; &quot;../../../lib&quot;</Command>
+            <Message>Running postbuild commands...</Message>
+        </PostBuildEvent>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <ClCompile>
+            <AdditionalIncludeDirectories>c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\SharedIncludes;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLUtilities;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\misc\boost;.;c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2012;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <AdditionalOptions>-Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 %(AdditionalOptions)</AdditionalOptions>
+            <AssemblerListingLocation>tmp\debug\obj\</AssemblerListingLocation>
+            <BrowseInformation>true</BrowseInformation>
+            <BufferSecurityCheck>false</BufferSecurityCheck>
+            <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+            <DisableSpecificWarnings>4201;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+            <ExceptionHandling>Sync</ExceptionHandling>
+            <MultiProcessorCompilation>true</MultiProcessorCompilation>
+            <ObjectFileName>tmp\debug\obj\</ObjectFileName>
+            <Optimization>Disabled</Optimization>
+            <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=DIAGTestAdd5;MEVIS_64BIT;MEVISLAB_VERSION=205;ML_VERSION_2;BOOST_ALL_DYN_LINK;DEBUG;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;DIAGTESTADD5_EXPORTS;ML_WARN_DEPRECATED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <PreprocessToFile>false</PreprocessToFile>
+            <ProgramDataBaseFileName>$(OutDir)</ProgramDataBaseFileName>
+            <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+            <RuntimeTypeInfo>true</RuntimeTypeInfo>
+            <SuppressStartupBanner>true</SuppressStartupBanner>
+            <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+            <WarningLevel>Level4</WarningLevel>
+        </ClCompile>
+        <Link>
+            <AdditionalDependencies>ML_d.lib;MLLinearAlgebra_d.lib;MLMemoryManager_d.lib;MLProfilingManager_d.lib;MLUtilities_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+            <AdditionalLibraryDirectories>c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\lib;C:/Users/Luc/Documents/GitHub/CAD/Packages/MM/CADCourse/lib;C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVisLab/Standard/lib;C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVis/Foundation/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+            <DataExecutionPrevention>true</DataExecutionPrevention>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <IgnoreImportLibrary>true</IgnoreImportLibrary>
+            <LinkDLL>true</LinkDLL>
+            <OutputFile>$(OutDir)DIAGTestAdd5_d.dll</OutputFile>
+            <RandomizedBaseAddress>true</RandomizedBaseAddress>
+            <SuppressStartupBanner>true</SuppressStartupBanner>
+        </Link>
+        <Midl>
+            <DefaultCharType>Unsigned</DefaultCharType>
+            <EnableErrorChecks>None</EnableErrorChecks>
+            <WarningLevel>0</WarningLevel>
+        </Midl>
+        <ResourceCompile>
+            <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=DIAGTestAdd5;MEVIS_64BIT;MEVISLAB_VERSION=205;ML_VERSION_2;BOOST_ALL_DYN_LINK;DEBUG;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;DIAGTESTADD5_EXPORTS;ML_WARN_DEPRECATED;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        </ResourceCompile>
+        <PostBuildEvent>
+            <Command>if not exist &quot;../../../lib&quot; mkdir &quot;../../../lib&quot;
+if exist &quot;../../../lib\updated\DIAGTestAdd5_d.dll&quot; (
+  echo removing old updated DLL
+  del &quot;../../../lib\updated\DIAGTestAdd5_d.dll&quot;
+)
+echo copy &quot;$(OutDir)DIAGTestAdd5_d.dll&quot; &quot;../../../lib\DIAGTestAdd5_d.dll&quot;
+copy &quot;$(OutDir)DIAGTestAdd5_d.dll&quot; &quot;../../../lib\DIAGTestAdd5_d.dll&quot;
+if errorLevel 1 (
+  echo DLL locked, copying to /updated subdir - and removing source file
+  if not exist &quot;../../../lib\updated&quot; mkdir &quot;../../../lib\updated&quot;
+  copy &quot;$(OutDir)DIAGTestAdd5_d.dll&quot; &quot;../../../lib\updated\DIAGTestAdd5_d.dll&quot;
+  del &quot;$(OutDir)DIAGTestAdd5_d.dll&quot;
+)
+echo copy &quot;$(OutDir)DIAGTestAdd5_d.pdb&quot; &quot;../../../lib&quot;
+copy &quot;$(OutDir)DIAGTestAdd5_d.pdb&quot; &quot;../../../lib&quot;
+echo if exist &quot;$(OutDir)DIAGTestAdd5_d.lib&quot; copy &quot;$(OutDir)DIAGTestAdd5_d.lib&quot; &quot;../../../lib&quot;
+if exist &quot;$(OutDir)DIAGTestAdd5_d.lib&quot; copy &quot;$(OutDir)DIAGTestAdd5_d.lib&quot; &quot;../../../lib&quot;</Command>
+            <Message>Running postbuild commands...</Message>
+        </PostBuildEvent>
+    </ItemDefinitionGroup>
+    <ItemGroup>
+        <ClCompile Include="DIAGTestAdd5Init.cpp"/>
+        <ClCompile Include="mlTestAdd5.cpp"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ClInclude Include="DIAGTestAdd5Init.h"/>
+        <ClInclude Include="DIAGTestAdd5System.h"/>
+        <ClInclude Include="mlTestAdd5.h"/>
+    </ItemGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+    <ImportGroup Label="ExtensionTargets"/>
+    <ItemGroup>
+        <CustomBuild Include="DIAGTestAdd5.pro">
+            <Command>set MLAB_COMPILER_VERSION=VC11-64
+&quot;C:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages/MeVis/ThirdParty/Python/MeVisPython.exe&quot; &quot;C:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\BuildSystem\BuildTools\Scripts\createProject.py&quot; DIAGTestAdd5.pro</Command>
+            <Outputs>tmp\.#DIAGTestAdd5.vcxproj</Outputs>
+            <Message>Compiling DIAGTestAdd5.pro...</Message>
+        </CustomBuild>
+    </ItemGroup>
+</Project>
