@@ -301,7 +301,7 @@ module View2D {
       window _default {
         geometry = "248 63 400 400"
         sizeHint = "400 400"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -493,7 +493,7 @@ module SoDiagram2D {
   }
   fields  {
     instanceName = SoDiagram2D
-    minX = 1
+    minX = 2
     maxX = 5
     minY = 0
     maxY = 1
@@ -572,8 +572,8 @@ module LUTPrimitive {
     instanceName = LUTPrimitive
     shape = Sigmoid
     relative = FALSE
-    center = 3
-    width = 1
+    center = 3.5
+    width = 0.5
     edgeWidth = 0
     baseValue = 0
     peakValue = 1
@@ -593,7 +593,7 @@ module LUTCurve {
   }
   fields  {
     instanceName = LUTCurve
-    minIndex = 1
+    minIndex = 2
     maxIndex = 5
     autoIndexRange = TRUE
     row = 0
