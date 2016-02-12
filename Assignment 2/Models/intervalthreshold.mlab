@@ -2,6 +2,36 @@
 network  {
   watchlist = ""
 }
+module IntervalThreshold {
+  internal  {
+    frame = "753 357 128 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "224 313 454 405"
+        sizeHint = "454 405"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = IntervalThreshold
+    lowerType = UserDef
+    innerType = UserDef
+    upperType = UserDef
+    centerWidthSet = FALSE
+    threshCenter = 6.25
+    threshWidth = 0.300000000000001
+    threshMin = 6.1
+    threshMax = 6.4
+    lowerUserValue = 0
+    innerUserValue = 1
+    upperUserValue = 0
+    changeMinMax = TRUE
+    changedMin = -100000
+    changedMax = 100000
+  }
+}
 module Arithmetic1 {
   internal  {
     frame = "657 465 96 64"
@@ -80,7 +110,7 @@ module ImagePropertyConvert {
 }
 module Histogram {
   internal  {
-    frame = "429 341 96 56"
+    frame = "75 279 96 56"
     moduleGroupName = Histogram
     windows  {
       window _default {
@@ -109,7 +139,7 @@ module Histogram {
 }
 module StylePalette {
   internal  {
-    frame = "529 341 104 56"
+    frame = "175 279 104 56"
     moduleGroupName = Histogram
     windows  {
       window _default {
@@ -218,7 +248,7 @@ module StylePalette {
 }
 module SoRenderArea {
   internal  {
-    frame = "441 125 112 56"
+    frame = "87 63 112 56"
     moduleGroupName = Histogram
     windows  {
       window _viewer {
@@ -258,7 +288,7 @@ module SoRenderArea {
 }
 module SoDiagram2D {
   internal  {
-    frame = "445 213 112 56"
+    frame = "91 151 112 56"
     moduleGroupName = Histogram
     windows  {
       window _default {
@@ -273,7 +303,7 @@ module SoDiagram2D {
     minX = 5
     maxX = 8
     minY = 0
-    maxY = 1500000
+    maxY = 4177068
     scaleX = 1
     scaleY = 1
     autoRangeX = FALSE
@@ -304,7 +334,7 @@ module SoDiagram2D {
     changeLineStyleForNotHighlightedCurves = FALSE
     curveLineStyleNotHighlighted = 1
     curveIndexHighlighted = ""
-    borderH = 63
+    borderH = 70
     borderV = 42
     autoBorderH = TRUE
     autoBorderV = TRUE
@@ -335,11 +365,11 @@ module SoDiagram2D {
 }
 module View2D {
   internal  {
-    frame = "797 249 120 64"
+    frame = "781 249 120 64"
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "540 288 400 400"
+        geometry = "137 201 400 400"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -375,8 +405,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 6.6957598
-    lutWidth = 1.8679889
+    lutCenter = 0.95250005
+    lutWidth = 0.27749997
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -398,9 +428,9 @@ module View2D {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "105 305 400 400"
+        geometry = "557 290 400 400"
         sizeHint = "400 400"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -434,8 +464,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1443.4874
-    lutWidth = 81.900002
+    lutCenter = 2703.1948
+    lutWidth = 4095
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -465,18 +495,19 @@ module LocalImage {
   }
   fields  {
     instanceName = LocalImage
-    name = "$(HOME)/Desktop/CAD/Assignment 2/Input Images/r0100009002mr.dcm"
+    name = "$(HOME)/Desktop/CAD/Assignment 2/Input Images/p0100009002mr.dcm"
     autoLoad = TRUE
   }
 }
 connections  {
+  IntervalThreshold.input0 = Log.output0
   Log.input0 = ImagePropertyConvert.output0
   ImagePropertyConvert.input0 = LocalImage.outImage
   Histogram1.input0 = Log.output0
   SoRenderArea.children = SoDiagram2D.self
   SoDiagram2D.inCurveList = Histogram1.outputHistogramCurve
   SoDiagram2D.inStylePalette = StylePalette0.outStylePalette
-  Processed.inImage = Log.output0
+  Processed.inImage = IntervalThreshold.output0
   Original.inImage = LocalImage.outImage
 }
 networkModel  {
