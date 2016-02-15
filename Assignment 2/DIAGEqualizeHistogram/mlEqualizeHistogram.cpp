@@ -92,8 +92,8 @@ void EqualizeHistogram::calculateOutputSubImage(TSubImage<T>* outputSubImage, in
 
   // Process all voxels of the valid region of the output page.
   ImageVector p;
-  T min = 99999999;
-  T max = 0;
+  int min = 99999999;
+  int max = 0;
   for (p.u=validOutBox.v1.u;  p.u<=validOutBox.v2.u;  ++p.u) {
     for (p.t=validOutBox.v1.t;  p.t<=validOutBox.v2.t;  ++p.t) {
       for (p.c=validOutBox.v1.c;  p.c<=validOutBox.v2.c;  ++p.c) {
@@ -103,15 +103,13 @@ void EqualizeHistogram::calculateOutputSubImage(TSubImage<T>* outputSubImage, in
             p.x = validOutBox.v1.x;
             // Get pointers to row starts of input and output sub-images.
             const T* inVoxel0 = inputSubImage0->getImagePointer(p);
-
-
             const MLint rowEnd   = validOutBox.v2.x;
 
             // Process all row voxels.
             for (; p.x <= rowEnd;  ++p.x, ++inVoxel0)
             {
-			  min = (min > *inVoxel0) ? *inVoxel0 : min;
-			  max = (max < *inVoxel0) ? *inVoxel0 : max;
+			  min = (min > int(*inVoxel0)) ? int(*inVoxel0) : min;
+			  max = (max < int(*inVoxel0)) ? int(*inVoxel0) : max;
             }
 			
           }
@@ -119,8 +117,10 @@ void EqualizeHistogram::calculateOutputSubImage(TSubImage<T>* outputSubImage, in
       }
     }
   }
-  T range = max - min;
-  std::vector<T> hist(range, 0);
+  int range = max - min;
+  mlDebug(range);
+  std::vector<int> hist(range, 0);
+  mlDebug(range);
   for (p.u=validOutBox.v1.u;  p.u<=validOutBox.v2.u;  ++p.u) {
     for (p.t=validOutBox.v1.t;  p.t<=validOutBox.v2.t;  ++p.t) {
       for (p.c=validOutBox.v1.c;  p.c<=validOutBox.v2.c;  ++p.c) {
@@ -130,33 +130,35 @@ void EqualizeHistogram::calculateOutputSubImage(TSubImage<T>* outputSubImage, in
             p.x = validOutBox.v1.x;
             // Get pointers to row starts of input and output sub-images.
             const T* inVoxel0 = inputSubImage0->getImagePointer(p);
-			  const MLint rowEnd   = validOutBox.v2.x;
+			const MLint rowEnd   = validOutBox.v2.x;
 			for (; p.x <= rowEnd;  ++p.x, ++inVoxel0)
 			{
-				hist[*inVoxel0]++;
+				hist[int(*inVoxel0) - min]++;
 			}
 		  }
 		}
 	  }
 	}
   }
-  cout << hist[0];
-
-	std::vector<T> cum(range, 0);
-	T sum = 0;
+  
+  mlDebug(range);
+	std::vector<int> cum(range, 0);
+  mlDebug(range);
+	int sum = 0;
 	for (int i=0; i <= int(hist.size()); i++)
 	{
 		sum += hist[i];
 		cum[i]+=sum;
 	} // sum now equals the total number of pixels
 	cout << cum[0];
-	std::vector<T> trans(range, 0);
+	std::vector<int> trans(range, 0);
+	float constant = float(range)/float(sum);
 	for (int i=0; i<= int(cum.size()); i++)
 	{
-		trans[i] = cum[i] * range/float(sum);
-
+		trans[i] = float(cum[i]) * constant;
 	}
-	cout << trans[0];
+	
+  mlDebug(range);
   for (p.u=validOutBox.v1.u;  p.u<=validOutBox.v2.u;  ++p.u) {
     for (p.t=validOutBox.v1.t;  p.t<=validOutBox.v2.t;  ++p.t) {
       for (p.c=validOutBox.v1.c;  p.c<=validOutBox.v2.c;  ++p.c) {
@@ -170,13 +172,14 @@ void EqualizeHistogram::calculateOutputSubImage(TSubImage<T>* outputSubImage, in
             T*  outVoxel = outputSubImage->getImagePointer(p);
 			for (; p.x <= rowEnd;  ++p.x, ++outVoxel, ++inVoxel0)
             {
-			  *outVoxel = trans[*inVoxel0];
+			  *outVoxel = trans[*inVoxel0 - min];
 			}
 		  }
 		}
 	  }
 	}
   }
+  mlDebug(range);
 
 }
 
