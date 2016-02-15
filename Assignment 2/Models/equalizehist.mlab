@@ -2,6 +2,30 @@
 network  {
   watchlist = ""
 }
+module ImageStatistics {
+  internal  {
+    frame = "349 173 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "323 115 522 704"
+        sizeHint = "522 704"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageStatistics
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = FALSE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
 module EqualizeHistogram {
   internal  {
     frame = "501 77 136 56"
@@ -60,8 +84,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1
-    lutWidth = 1
+    lutCenter = 2334.5771
+    lutWidth = 3440.6836
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -91,7 +115,7 @@ module LocalImage {
   }
   fields  {
     instanceName = LocalImage
-    name = "$(HOME)/Desktop/CAD/Assignment 2/Input Images/r0100009002mr.dcm"
+    name = "$(HOME)/Desktop/CAD/Assignment 2/Input Images/p0100009002mr.dcm"
     autoLoad = TRUE
   }
 }
@@ -239,7 +263,7 @@ module SoRenderArea {
     moduleGroupName = hist
     windows  {
       window _viewer {
-        geometry = "311 197 400 400"
+        geometry = "358 181 400 400"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -277,13 +301,20 @@ module SoDiagram2D {
   internal  {
     frame = "121 5 112 56"
     moduleGroupName = hist
+    windows  {
+      window _default {
+        geometry = "-6 137 614 601"
+        sizeHint = "614 601"
+        wasOpen = no
+      }
+    }
   }
   fields  {
     instanceName = SoDiagram2D
-    minX = -1
-    maxX = 1
-    minY = 8519679
-    maxY = 8519681
+    minX = 48300
+    maxX = 48361
+    minY = 5063
+    maxY = 4265631
     scaleX = 1
     scaleY = 1
     autoRangeX = TRUE
@@ -314,7 +345,7 @@ module SoDiagram2D {
     changeLineStyleForNotHighlightedCurves = FALSE
     curveLineStyleNotHighlighted = 1
     curveIndexHighlighted = ""
-    borderH = 90
+    borderH = 63
     borderV = 25
     autoBorderH = TRUE
     autoBorderV = TRUE
@@ -359,6 +390,7 @@ module PageToImageExtent {
   }
 }
 connections  {
+  ImageStatistics.input0 = LocalImage.outImage
   EqualizeHistogram.input0 = PageToImageExtent.output0
   View2D.inImage = EqualizeHistogram.output0
   Equalized.input0 = EqualizeHistogram.output0
