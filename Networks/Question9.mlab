@@ -1,0 +1,103 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module ThresholdImage {
+  internal  {
+    frame = "645 373 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "779 539 136 32"
+        sizeHint = "136 32"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ThresholdImage
+    threshold = 200
+  }
+}
+module View2D {
+  internal  {
+    frame = "677 237 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "991 270 400 418"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 50
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 19.2785739898682"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 234.91
+    lutWidth = 544.54376
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module LocalImage {
+  internal  {
+    frame = "657 533 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "635 438 424 235"
+        sizeHint = "424 235"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = LocalImage
+    name = $(DemoDataPath)/BrainMultiModal/ProbandT2.dcm
+    autoLoad = TRUE
+  }
+}
+connections  {
+  ThresholdImage.input0 = LocalImage.outImage
+  View2D1.inImage = ThresholdImage.output0
+}
+networkModel = ""

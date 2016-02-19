@@ -2,13 +2,13 @@
 network  {
   watchlist = ""
 }
-module CSOFreehandProcessor {
+module CSOPrimitiveProcessor {
   internal  {
-    frame = "845 517 168 56"
+    frame = "841 517 160 56"
     moduleGroupName = ""
   }
   fields  {
-    instanceName = CSOFreehandProcessor
+    instanceName = CSOPrimitiveProcessor
     updateMode = Off
     autoApply = FALSE
     emptyGroupBeforeGeneration = FALSE
@@ -20,23 +20,15 @@ module CSOFreehandProcessor {
     pathPointWidth = 1
     pathPointColor = "1 1 0"
     pathPointAlpha = 1
-    seedPointStyle = MarkerModeNone
+    seedPointStyle = MarkerModeRect
     seedPointSize = 2
     seedPointColor = "0 1 0"
     seedPointAlpha = 1
     voxelWriteMode = VoxelWriteModeModule
     voxelWriteValue = 1024
-    creationMode = CreationModeClosedFreehand
-    interpolationMode = InterpolationModeSplineApproximation
-    seedPlacementPolicy = PlaceSeedPointWhileDragging
-    finishingMode = FinishOnRelease
-    minNumSeedPoints = 0
-    minSeedPointDistance = 8
-    shouldCloseOnFinish = TRUE
-    useFinishingDistance = TRUE
-    finishingDistance = 24
-    numInterpolationSteps = 1
-    showInteractivePreview = TRUE
+    primitiveType = Rectangle
+    createIsotropicPrimitives = FALSE
+    createFromCenter = FALSE
   }
 }
 module CSOLoad {
@@ -110,7 +102,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 0
+    startSlice = 35
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -132,7 +124,7 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "0 0"
-    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 -80.721435546875"
+    plane = "-0.999107718467712 0.0326654277741909 -0.0267759524285793 -10.7214374542236"
     useShaders = TRUE
     useManagedInteraction = FALSE
     lutCenter = 234.91
@@ -230,7 +222,7 @@ module CSOManager {
     listSingleRemoveEmptyGroupHandling = RemoveAlways
     listDefaultRemoveEmptyGroupHandling = RemoveAlways
     enableUndoRedo = TRUE
-    numUndos = 8
+    numUndos = 0
     numRedos = 0
     undoStackLimit = 16
     useSelectionCSONotification = FALSE
@@ -251,7 +243,7 @@ module CSOManager {
     groupDefaultUseMarkerSettings = FALSE
     csoTreeView = ""
     groupTreeView = ""
-    numCSOs = 3
+    numCSOs = 1
     numGroups = 0
     numSelectedCSOs = 1
     numSelectedGroups = 0
@@ -426,6 +418,6 @@ connections  {
   View2D.inInvPreLUT = SoView2DCSOEditor.self
   CSOManager.inCSOList = CSOLoad.outCSOList
   SoView2DCSOEditor.inCSOList = CSOManager.outCSOList
-  SoView2DCSOEditor.inProcessor = CSOFreehandProcessor.outProcessorData
+  SoView2DCSOEditor.inProcessor = CSOPrimitiveProcessor.outProcessorData
 }
 networkModel = ""

@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! DIAGImageThreshold module definitions.
+/*!
+// \file    DIAGImageThreshold.def
+// \author  Luc Nies
+// \date    2016-02-07
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule ThresholdImage {
+  DLL                = "DIAGImageThreshold"
+
+  genre              = ""
+  author             = "Luc Nies"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/ThresholdImage.script
+}  

@@ -91,7 +91,6 @@ void TestAdd5::calculateOutputSubImage(TSubImage<T>* outputSubImage, int outputI
   const SubImageBox validOutBox = outputSubImage->getValidRegion();
 
   // Process all voxels of the valid region of the output page.
-  cout << "i am herer! :D" << endl;
   ImageVector p;
   for (p.u=validOutBox.v1.u;  p.u<=validOutBox.v2.u;  ++p.u) {
     for (p.t=validOutBox.v1.t;  p.t<=validOutBox.v2.t;  ++p.t) {
