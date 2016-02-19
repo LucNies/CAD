@@ -2,13 +2,644 @@
 network  {
   watchlist = ""
 }
+module Arithmetic {
+  internal  {
+    frame = "1445 349 104 56"
+    moduleGroupName = Gaussian
+    windows  {
+      window _default {
+        geometry = "842 217 577 640"
+        sizeHint = "577 511"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic3
+    expression = "(a*a*c+2*a*d*b+b*b*e)/(a*a+b*b)"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 1.5
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 5
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module TypeDecomposer {
+  internal  {
+    frame = "1469 517 168 56"
+    moduleGroupName = Gaussian
+    windows  {
+      window _default {
+        geometry = "1236 735 258 189"
+        sizeHint = "110 21"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "1029 441 500 600"
+        sizeHint = "262 217"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = TypeDecomposer2
+  }
+}
+module MinMaxScan {
+  internal  {
+    frame = "921 357 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MinMaxScan8
+    updateMode = AutoUpdate
+    typeSelect = "Proposed Data Type"
+    preferUnsigned = TRUE
+  }
+}
+module View2D {
+  internal  {
+    frame = "877 205 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "11 155 542 529"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "1029 441 500 600"
+        sizeHint = "262 217"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D3
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_NEAREST
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1.5339729
+    lutWidth = 18.474575
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module Arithmetic {
+  internal  {
+    frame = "957 477 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "814 318 577 613"
+        sizeHint = "577 511"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic2
+    expression = "cos(d1)*cos(d1)*a+2*cos(d1)*sin(d1)*b+sin(d1)*sin(d1)*c"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 0
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 3
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module MinMaxScan {
+  internal  {
+    frame = "1057 357 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MinMaxScan7
+    updateMode = AutoUpdate
+    typeSelect = "Proposed Data Type"
+    preferUnsigned = TRUE
+  }
+}
+module View2D {
+  internal  {
+    frame = "1021 189 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "554 162 542 529"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "1029 441 500 600"
+        sizeHint = "262 217"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D2
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_NEAREST
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1.6223525
+    lutWidth = 16.248213
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module Arithmetic {
+  internal  {
+    frame = "1085 477 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "814 318 577 613"
+        sizeHint = "577 511"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic1
+    expression = "cos(d1)*cos(d1)*a+2*cos(d1)*sin(d1)*b+sin(d1)*sin(d1)*c"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 0.8
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 3
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module GaussHessian {
+  internal  {
+    frame = "1301 613 120 56"
+    moduleGroupName = Gaussian
+    windows  {
+      window _default {
+        geometry = "1180 618 199 247"
+        sizeHint = "199 247"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GaussHessian1
+    sigma = 2
+    unit = voxel
+    calc2D = TRUE
+    calcLaplacian = FALSE
+    applyScaleNormalization = TRUE
+    autoUpdate = TRUE
+  }
+}
+module Arithmetic {
+  internal  {
+    frame = "1949 449 120 64"
+    moduleGroupName = Gaussian
+    windows  {
+      window _default {
+        geometry = "814 318 577 613"
+        sizeHint = "577 511"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SecondSteering
+    expression = "cos(d1)*cos(d1)*a+2*cos(d1)*sin(d1)*b+sin(d1)*sin(d1)*c"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 1.5
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 3
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module GaussGradient {
+  internal  {
+    frame = "781 581 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1150 365 194 233"
+        sizeHint = "194 233"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GaussGradient1
+    sigma = 4
+    unit = voxel
+    calc2D = TRUE
+    calcMagnitude = FALSE
+    autoUpdate = TRUE
+  }
+}
+module MinMaxScan {
+  internal  {
+    frame = "777 445 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MinMaxScan6
+    updateMode = AutoUpdate
+    typeSelect = "Proposed Data Type"
+    preferUnsigned = TRUE
+  }
+}
+module View2D {
+  internal  {
+    frame = "749 245 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "349 351 542 529"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "1029 441 500 600"
+        sizeHint = "262 217"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_NEAREST
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 0.04519558
+    lutWidth = 11.734812
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module AffineTransformation2D {
+  internal  {
+    frame = "793 813 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1144 296 205 214"
+        sizeHint = "190 214"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AffineTransformation2D
+    optParameters = "0 0 -45 0 1 1 "
+    translationX = 0
+    translationY = 0
+    rotation = -45
+    shearing = 0
+    scalingX = 1
+    scalingY = 1
+  }
+}
+module ImagePropertyConvert {
+  internal  {
+    frame = "837 717 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "794 232 324 631"
+        sizeHint = "324 631"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImagePropertyConvert
+    changeDimensionInfo = FALSE
+    cDimInfo = LUMINANCE
+    tDimInfo = "2014-02-20 17:27:49.899"
+    uDimInfo = ""
+    a00 = 1
+    a01 = 0
+    a02 = 0
+    a03 = 0
+    a10 = 0
+    a11 = 1
+    a12 = 0
+    a13 = 0
+    a20 = 0
+    a21 = 0
+    a22 = 1
+    a23 = 0
+    a30 = 0
+    a31 = 0
+    a32 = 0
+    a33 = 1
+    worldMatrix = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+    changeDatatype = FALSE
+    datatype = "unsigned int8"
+    changePageSize = FALSE
+    pageSizeX = 781
+    pageSizeY = 521
+    pageSizeZ = 1
+    pageSizeC = 1
+    pageSizeT = 1
+    pageSizeU = 1
+    changeMinGreyvalue = FALSE
+    minGreyvalue = 0
+    changeMaxGreyvalue = FALSE
+    maxGreyvalue = 255
+    changeWorldMatrix = FALSE
+    voxelSizeX = 1
+    voxelSizeY = 1
+    voxelSizeZ = 1
+    autoApply = TRUE
+  }
+}
+module KernelEditor {
+  internal  {
+    frame = "125 429 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "870 198 407 796"
+        sizeHint = "407 796"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = KernelEditor
+    kernelX = 3
+    kernelY = 3
+    kernelZ = 1
+    kernelC = 1
+    kernelT = 1
+    kernelU = 1
+    fieldWidth = 10
+    precision = 6
+    value = 1
+    numElements = 9
+    elementSum = 0
+    status = "#Elems=9, Sum=0.000000, 3 Undos, 0 Redos"
+    kernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
+(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
+(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+
+"
+  }
+}
 module SynchroView2D {
   internal  {
     frame = "513 221 128 56"
     moduleGroupName = "Simple Convolution Kernels"
     windows  {
       window _default {
-        geometry = "634 205 804 400"
+        geometry = "184 329 804 278"
         sizeHint = "804 400"
         wasOpen = no
       }
@@ -35,21 +666,21 @@ module SynchroView2D {
     filterMode = FILTER_NEAREST
     slice2 = 0
     timepoint2 = 0
-    lut1w = 893
-    lut1c = -318.5
+    lut1w = 1020
+    lut1c = 0
     lut2w = 1
-    lut2c = 0
+    lut2c = 0.5025
     annotationColor = "0.899999976158142 0.899999976158142 0.899999976158142"
     borderOn = FALSE
     drawCurrentPos = FALSE
     showCurrentPos = FALSE
-    worldPosition = "82.8333358764648 195.250015258789 0.5"
+    worldPosition = "5.73722362518311 6.01824569702148 0.5"
     background = "0 0 0"
   }
 }
 module SynchroView2D {
   internal  {
-    frame = "1561 169 128 64"
+    frame = "1909 97 120 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -89,7 +720,7 @@ module SynchroView2D {
 }
 module MinMaxScan {
   internal  {
-    frame = "1561 253 112 56"
+    frame = "1905 181 112 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -108,7 +739,7 @@ module MinMaxScan {
 }
 module Arithmetic {
   internal  {
-    frame = "1569 325 96 56"
+    frame = "1913 249 96 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -227,7 +858,7 @@ module View2D {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "519 271 400 400"
+        geometry = "1010 319 400 420"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -268,8 +899,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0
-    lutWidth = 0
+    lutCenter = 127.5
+    lutWidth = 255
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -287,7 +918,7 @@ module View2D {
 }
 module MinMaxScan {
   internal  {
-    frame = "1374 321 112 56"
+    frame = "1721 245 112 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -306,7 +937,7 @@ module MinMaxScan {
 }
 module Arithmetic {
   internal  {
-    frame = "1382 397 96 64"
+    frame = "1733 321 88 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -357,11 +988,11 @@ module Arithmetic {
 }
 module View2D {
   internal  {
-    frame = "1382 165 128 64"
+    frame = "1733 89 120 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "390 269 400 400"
+        geometry = "627 177 513 540"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -402,8 +1033,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0
-    lutWidth = 0
+    lutCenter = 12.701063
+    lutWidth = 35.838543
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -421,7 +1052,7 @@ module View2D {
 }
 module TypeDecomposer {
   internal  {
-    frame = "1373 517 168 56"
+    frame = "1717 445 168 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -442,7 +1073,7 @@ module TypeDecomposer {
 }
 module GaussHessian {
   internal  {
-    frame = "1398 609 112 56"
+    frame = "1745 533 112 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -464,11 +1095,11 @@ module GaussHessian {
 }
 module View2D {
   internal  {
-    frame = "1190 165 144 64"
+    frame = "1394 130 136 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "543 259 885 985"
+        geometry = "83 180 542 529"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -509,8 +1140,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0
-    lutWidth = 0
+    lutCenter = 11.910233
+    lutWidth = 34.608742
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -528,12 +1159,12 @@ module View2D {
 }
 module Arithmetic {
   internal  {
-    frame = "1193 401 96 64"
+    frame = "1897 353 96 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "135 314 682 669"
-        sizeHint = "682 567"
+        geometry = "812 439 577 613"
+        sizeHint = "577 511"
         wasOpen = no
       }
     }
@@ -547,7 +1178,7 @@ module Arithmetic {
     i4 = 0
     i5 = 0
     i6 = 0
-    d1 = 2.2
+    d1 = 0.8
     d2 = 0
     d3 = 0
     d4 = 0
@@ -579,12 +1210,12 @@ module Arithmetic {
 }
 module MinMaxScan {
   internal  {
-    frame = "1190 321 112 56"
+    frame = "1385 234 112 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "1053 603 477 277"
-        sizeHint = "453 277"
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
         wasOpen = no
       }
     }
@@ -598,12 +1229,12 @@ module MinMaxScan {
 }
 module MinMaxScan {
   internal  {
-    frame = "1041 317 112 56"
+    frame = "1241 282 112 56"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "1053 603 477 277"
-        sizeHint = "453 277"
+        geometry = "1133 443 465 255"
+        sizeHint = "441 255"
         wasOpen = no
       }
     }
@@ -617,12 +1248,12 @@ module MinMaxScan {
 }
 module Arithmetic {
   internal  {
-    frame = "1054 397 96 64"
+    frame = "1234 362 136 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "1187 535 682 567"
-        sizeHint = "682 567"
+        geometry = "876 284 577 626"
+        sizeHint = "577 511"
         wasOpen = no
       }
     }
@@ -668,11 +1299,11 @@ module Arithmetic {
 }
 module View2D {
   internal  {
-    frame = "1058 165 120 64"
+    frame = "1258 130 120 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "1190 321 1097 962"
+        geometry = "154 275 541 570"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -713,8 +1344,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0
-    lutWidth = 0
+    lutCenter = 11.847625
+    lutWidth = 35.077499
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -732,7 +1363,7 @@ module View2D {
 }
 module TypeDecomposer {
   internal  {
-    frame = "1109 521 168 64"
+    frame = "1269 478 168 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
@@ -753,12 +1384,12 @@ module TypeDecomposer {
 }
 module GaussGradient {
   internal  {
-    frame = "1062 613 160 64"
+    frame = "1485 593 152 64"
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "1178 634 199 221"
-        sizeHint = "199 221"
+        geometry = "1150 365 194 233"
+        sizeHint = "194 233"
         wasOpen = no
       }
     }
@@ -797,8 +1428,8 @@ module Convolution {
     moduleGroupName = "Simple Convolution Kernels"
     windows  {
       window _default {
-        geometry = "560 385 324 173"
-        sizeHint = "319 173"
+        geometry = "272 353 298 179"
+        sizeHint = "293 179"
         wasOpen = no
       }
     }
@@ -811,19 +1442,23 @@ module Convolution {
     intervalMinOfFilteredVoxels = 0
     intervalMaxOfFilteredVoxels = 1024
     useIntervalOfFilteredVoxels = FALSE
-    externalKernel = ""
-    kernelInfo = "Invalid input, 9 elems, 3x3x1x1x1x1"
-    kernelOutput = "(0,0,0,0,0,0):0.250000
-(1,0,0,0,0,0):0.500000
-(2,0,0,0,0,0):0.250000
-(0,1,0,0,0,0):0.500000
-(1,1,0,0,0,0):-3.000000
-(2,1,0,0,0,0):0.500000
-(0,2,0,0,0,0):0.250000
-(1,2,0,0,0,0):0.500000
-(2,2,0,0,0,0):0.250000
+    externalKernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
+(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
+(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+
 "
-    predefKernel = "Laplace2 Kernel"
+    kernelInfo = "9 elems, 3x3x1x1x1x1"
+    kernelOutput = "(0,0,0,0,0,0):1.000000
+(1,0,0,0,0,0):0.000000
+(2,0,0,0,0,0):-1.000000
+(0,1,0,0,0,0):2.000000
+(1,1,0,0,0,0):0.000000
+(2,1,0,0,0,0):-2.000000
+(0,2,0,0,0,0):1.000000
+(1,2,0,0,0,0):0.000000
+(2,2,0,0,0,0):-1.000000
+"
+    predefKernel = "From Kernel Input"
   }
 }
 module SubImage {
@@ -910,8 +1545,8 @@ module Convolution {
     moduleGroupName = "Simple Convolution Kernels"
     windows  {
       window _default {
-        geometry = "256 299 324 173"
-        sizeHint = "319 173"
+        geometry = "539 195 298 179"
+        sizeHint = "293 179"
         wasOpen = no
       }
     }
@@ -924,19 +1559,23 @@ module Convolution {
     intervalMinOfFilteredVoxels = 0
     intervalMaxOfFilteredVoxels = 1024
     useIntervalOfFilteredVoxels = FALSE
-    externalKernel = ""
-    kernelInfo = "Invalid input, 9 elems, 3x3x1x1x1x1"
-    kernelOutput = "(0,0,0,0,0,0):0.250000
-(1,0,0,0,0,0):0.500000
-(2,0,0,0,0,0):0.250000
-(0,1,0,0,0,0):0.500000
-(1,1,0,0,0,0):-3.000000
-(2,1,0,0,0,0):0.500000
-(0,2,0,0,0,0):0.250000
-(1,2,0,0,0,0):0.500000
-(2,2,0,0,0,0):0.250000
+    externalKernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
+(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
+(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+
 "
-    predefKernel = "Laplace2 Kernel"
+    kernelInfo = "9 elems, 3x3x1x1x1x1"
+    kernelOutput = "(0,0,0,0,0,0):1.000000
+(1,0,0,0,0,0):0.000000
+(2,0,0,0,0,0):-1.000000
+(0,1,0,0,0,0):2.000000
+(1,1,0,0,0,0):0.000000
+(2,1,0,0,0,0):-2.000000
+(0,2,0,0,0,0):1.000000
+(1,2,0,0,0,0):0.000000
+(2,2,0,0,0,0):-1.000000
+"
+    predefKernel = "From Kernel Input"
   }
 }
 module MinMaxScan {
@@ -953,7 +1592,7 @@ module MinMaxScan {
 }
 module ImageLoad {
   internal  {
-    frame = "641 837 96 56"
+    frame = "1809 797 96 56"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -965,7 +1604,7 @@ module ImageLoad {
   }
   fields  {
     instanceName = ImageLoad
-    filename = ""
+    filename = C:/Users/Luc/Documents/GitHub/CAD/Assignment3/data/Exercise1/retina.dcm
     autoLoad = TRUE
     readRaw = FALSE
     rawX = 1
@@ -984,6 +1623,22 @@ module ImageLoad {
   }
 }
 connections  {
+  Arithmetic3.input0 = TypeDecomposer2.output0
+  Arithmetic3.input1 = TypeDecomposer2.output1
+  Arithmetic3.input2 = FirstOrderSplit.output0
+  Arithmetic3.input3 = FirstOrderSplit.output1
+  Arithmetic3.input4 = FirstOrderSplit.output2
+  TypeDecomposer2.input0 = FirstOrderDerivatives.output0
+  MinMaxScan8.input0 = Arithmetic2.output0
+  View2D3.inImage = MinMaxScan8.output0
+  MinMaxScan7.input0 = Arithmetic1.output0
+  View2D2.inImage = MinMaxScan7.output0
+  GaussHessian1.input0 = ImageLoad.output0
+  GaussGradient1.input0 = ImagePropertyConvert.output0
+  MinMaxScan6.input0 = GaussGradient1.output0
+  View2D1.inImage = MinMaxScan6.output0
+  AffineTransformation2D.input0 = ImageLoad.output0
+  ImagePropertyConvert.input0 = AffineTransformation2D.output0
   SynchroView2D.inImage1 = MinMaxScan1.output0
   SynchroView2D.inImage2 = Convolution.output0
   SharpendImage.inImage2 = MinMaxScan5.output0
@@ -996,22 +1651,23 @@ connections  {
   Laplacian.input1 = TypeDecomposer1.output2
   LaplacianImage.inImage = MinMaxScan4.output0
   TypeDecomposer1.input0 = GaussHessian.output0
+  GaussHessian.input0 = ImageLoad.output0
   SteerableDerivative.inImage = MinMaxScan3.output0
-  Steerability.input0 = FirstOrderSplit.output0
-  Steerability.input1 = FirstOrderSplit.output1
-  MinMaxScan3.input0 = Steerability.output0
+  MinMaxScan3.input0 = Arithmetic3.output0
   MinMaxScan2.input0 = GradientMagnitude.output0
   GradientMagnitude.input0 = FirstOrderSplit.output0
   GradientMagnitude.input1 = FirstOrderSplit.output1
   GradientImage.inImage = MinMaxScan2.output0
-  FirstOrderSplit.input0 = FirstOrderDerivatives.output0
+  FirstOrderSplit.input0 = GaussHessian1.output0
+  FirstOrderDerivatives.input0 = ImageLoad.output0
   MinMaxScan1.input0 = Convolution1.output0
   Convolution1.input0 = SubImage.output0
+  Convolution1.externalKernel = KernelEditor.kernel
   Convolution1.predefKernel = Convolution.predefKernel
   SubImage.input0 = TestPattern.output0
   Convolution.input0 = MinMaxScan.output0
+  Convolution.externalKernel = KernelEditor.kernel
   Convolution.predefKernel = Convolution1.predefKernel
-  MinMaxScan.input0 = ImageLoad.output0
 }
 networkModel  {
   parentItems  {
