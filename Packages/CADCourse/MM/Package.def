@@ -1,0 +1,8 @@
+
+Package {
+  packageGroup = "CADCourse"
+  packageName  = "MM"
+
+  owner = "Team666"
+  description = ""
+}

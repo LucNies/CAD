@@ -1,6 +1,60 @@
-﻿Build started 5-2-2016 16:29:00.
-     1>Project "C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+﻿Build started 7-2-2016 14:38:57.
+     1>Project "C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.vcxproj" on node 2 (Rebuild target(s)).
+     1>CustomBuild:
+         Compiling DIAGTestAdd5.pro...
+         Qt: Untested Windows version 6.2 detected!
+         Running C:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages/MeVis/ThirdParty/Python/MeVisPython.exe C:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\BuildSystem\BuildTools\win32\createVCXProj.py DIAGTestAdd5 VC11-64
+         Generating project file for VC11-64
+         Profile target type: dll
+         Profile template type: vclib
+         C:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\bin\qmake.exe -t vclib -o tmp_DIAGTestAdd5.vcxproj INITIAL_CONFIG = $$CONFIG CONFIG -= release debug CONFIG += debug_and_release  DIAGTestAdd5.pro -after message(MLAB_COMPILE_MODE=$$MLAB_COMPILE_MODE) message(MSVC_NO_POSTBUILD_STEP=$$MSVC_NO_POSTBUILD_STEP) message(MEVIS_UNITTEST=$$MEVIS_UNITTEST) message(ENVIRONMENT=$$ENVIRONMENT) message(IGNORED_CONFIG=$$IGNORED_CONFIG) message(MSVC_TARGETDLLEXTENSION=$$MSVC_TARGETDLLEXTENSION) message(TARGET_DEBUG_POSTFIX=$$TARGET_DEBUG_POSTFIX) message(MSVC_NO_MANIFEST=$$MSVC_NO_MANIFEST) message(QMAKE_CXXFLAGS=$$QMAKE_CXXFLAGS) message(TARGET=$$TARGET) message(MSVC_POSTBUILD_PRE=$$MSVC_POSTBUILD_PRE) message(DESTDIR=$$DESTDIR) message(MSVC_COMPILERSTACK=$$MSVC_COMPILERSTACK) message(MSVC_RELEASE_WITH_DEBUG_INFO=$$MSVC_RELEASE_WITH_DEBUG_INFO) message(MSVC_MANIFEST_FRAGMENTS=$$MSVC_MANIFEST_FRAGMENTS) message(MSVC_KEEP_QMAKE_POST_LINK=$$MSVC_KEEP_QMAKE_POST_LINK) message(TEMPLATE=$$TEMPLATE) message(DLLDESTDIR=$$DLLDESTDIR) message(CONFIG=$$CONFIG)
+         Qt: Untested Windows version 6.2 detected!
+         Project MESSAGE: loading MM_CADCourse.pri
+         Project MESSAGE: loading SystemInit.pri
+         Project MESSAGE: loading MeVisPython.pri
+         Project MESSAGE: loading MeVisLab_Standard.pri
+         Project MESSAGE: loading MeVis_Foundation.pri
+         Project MESSAGE: loading MeVis_ThirdParty.pri
+         Project MESSAGE: loading System.pri
+         Project MESSAGE: loading MM_CADCourse.pri
+         Project MESSAGE: loading SystemInit.pri
+         Project MESSAGE: loading MeVisPython.pri
+         Project MESSAGE: loading MeVisLab_Standard.pri
+         Project MESSAGE: loading MeVis_Foundation.pri
+         Project MESSAGE: loading MeVis_ThirdParty.pri
+         Project MESSAGE: loading System.pri
+         Project MESSAGE: loading MM_CADCourse.pri
+         Project MESSAGE: loading SystemInit.pri
+         Project MESSAGE: loading MeVisPython.pri
+         Project MESSAGE: loading MeVisLab_Standard.pri
+         Project MESSAGE: loading MeVis_Foundation.pri
+         Project MESSAGE: loading MeVis_ThirdParty.pri
+         Project MESSAGE: loading System.pri
+         MEVIS_PROJECT_CONFIG: ML,MLUtilities,MLLinearAlgebra,MLMemoryManager,MLProfilingManager,MLMemoryManagerHeader,boost_thread,boost
+         MEVIS_IGNORED_CONFIG: lex,yacc,warn_on,uic,resources,rtti_off,exceptions_off,stl_off,incremental_off,thread_off,windows,ReleaseBuild,Release,build_pass,incremental,flat,link_prl,precompile_header,autogen_precompile_source,copy_dir_files,debug_and_release,debug_and_release_target,embed_manifest_dll,embed_manifest_exe,shared,stl,exceptions,rtti,mmx,3dnow,sse,sse2,release,dll,win64,64bit,no_autoqmake,thread,no_versionlink
+         MEVIS_TARGET: DIAGTestAdd5
+         MEVIS_DESTDIR: ../../../lib
+         MEVIS_DEBUG_DESTDIR: ../../../lib
+         MEVIS_DLLDESTDIR: ../../../lib
+         **ResultFile**: C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.pro
+         **ResultFile**: C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.vcxproj
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\SharedIncludes" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLUtilities" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\misc\boost" /I. /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2012" /Zi /nologo /W4 /WX- /MP /Od /D _WINDOWS /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D MEVIS_TARGET=DIAGTestAdd5 /D MEVIS_64BIT /D MEVISLAB_VERSION=205 /D ML_VERSION_2 /D BOOST_ALL_DYN_LINK /D DEBUG /D MeVisLab /D MEVISLAB /D __LITTLE_ENDIAN__ /D "ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport)" /D "ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport)" /D ML_RETURN_VALUE_SHOULD_BE_USED= /D NOMINMAX /D _CRT_SECURE_NO_DEPRECATE /D DIAGTESTADD5_EXPORTS /D ML_WARN_DEPRECATED /D _WINDLL /Gm- /EHsc /MDd /GS- /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"tmp\debug\obj\\" /Fd"tmp\debug\obj\vc110.pdb" /FR"tmp\debug\obj\\" /Gd /TP /wd4201 /wd4251 /errorReport:prompt -Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 DIAGTestAdd5Init.cpp mlTestAdd5.cpp
+         DIAGTestAdd5Init.cpp
+         mlTestAdd5.cpp
+     1>c:\users\luc\appdata\local\mevislab2.5.1vc11-64\packages\mevis\foundation\sources\mllinearalgebra\mlQuaternion.h : warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss (DIAGTestAdd5Init.cpp)
+     1>c:\users\luc\appdata\local\mevislab2.5.1vc11-64\packages\mevis\foundation\sources\mllinearalgebra\mlQuaternion.h : warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss (mlTestAdd5.cpp)
+     1>mlTestAdd5.cpp(63): warning C4100: 'outputImage' : unreferenced formal parameter
+     1>mlTestAdd5.cpp(71): warning C4100: 'outputIndex' : unreferenced formal parameter
+     1>mlTestAdd5.cpp(71): warning C4100: 'inputIndex' : unreferenced formal parameter
+     1>mlTestAdd5.cpp(81): warning C4995: 'ML_CALCULATEOUTPUTSUBIMAGE_NUM_INPUTS_1_CPP': name was marked as #pragma deprecated
+     1>mlTestAdd5.cpp(85): warning C4100: 'outputIndex' : unreferenced formal parameter
+                 mlTestAdd5.cpp(81) : see reference to function template instantiation 'void ml::TestAdd5::calculateOutputSubImage<MLint8>(ml::TSubImage<DATATYPE> *,int,ml::TSubImage<DATATYPE> *)' being compiled
+                 with
+                 [
+                     DATATYPE=MLint8
+                 ]
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"tmp\debug\obj\DIAGTestAdd5_d.dll" /NOLOGO /LIBPATH:"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\lib" /LIBPATH:C:/Users/Luc/Documents/GitHub/CAD/Packages/MM/CADCourse/lib /LIBPATH:"C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVisLab/Standard/lib" /LIBPATH:"C:/Users/Luc/AppData/Local/MeVisLab2.5.1VC11-64/Packages/MeVis/Foundation/lib" ML_d.lib MLLinearAlgebra_d.lib MLMemoryManager_d.lib MLProfilingManager_d.lib MLUtilities_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"tmp\debug\obj\DIAGTestAdd5_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL tmp\debug\obj\DIAGTestAdd5Init.obj
          tmp\debug\obj\mlTestAdd5.obj
             Creating library tmp\debug\obj\DIAGTestAdd5_d.lib and object tmp\debug\obj\DIAGTestAdd5_d.exp
@@ -32,8 +86,8 @@
                  1 file(s) copied.
          if exist "tmp\debug\obj\DIAGTestAdd5_d.lib" copy "tmp\debug\obj\DIAGTestAdd5_d.lib" "../../../lib"
                  1 file(s) copied.
-     1>Done Building Project "C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Luc\Documents\GitHub\CAD\Packages\MM\CADCourse\Sources\ML\DIAGTestAdd5\DIAGTestAdd5.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.94
+Time Elapsed 00:00:07.92

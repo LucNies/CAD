@@ -28,7 +28,7 @@ module TestAdd5 {
       window _default {
         geometry = "844 552 120 6"
         sizeHint = "6 6"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
