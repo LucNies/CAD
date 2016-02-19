@@ -2,13 +2,217 @@
 network  {
   watchlist = ""
 }
-module View2D {
+module MinMaxScan {
   internal  {
-    frame = "837 189 120 56"
+    frame = "777 317 112 56"
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "3 68 541 573"
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MinMaxScan7
+    updateMode = AutoUpdate
+    typeSelect = "Proposed Data Type"
+    preferUnsigned = TRUE
+  }
+}
+module Arithmetic {
+  internal  {
+    frame = "777 397 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1020 337 577 613"
+        sizeHint = "577 511"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic2
+    expression = "cos(d1)*a+sin(d1)*b"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 1.5
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 2
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module View2D {
+  internal  {
+    frame = "789 165 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "39 293 542 537"
+        sizeHint = "400 400"
+        wasOpen = yes
+      }
+      window _automatic {
+        geometry = "1029 441 500 600"
+        sizeHint = "262 217"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D2
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_NEAREST
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1.6937084
+    lutWidth = 16.184832
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module MinMaxScan {
+  internal  {
+    frame = "897 325 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1130 147 465 255"
+        sizeHint = "441 255"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MinMaxScan6
+    updateMode = AutoUpdate
+    typeSelect = "Proposed Data Type"
+    preferUnsigned = TRUE
+  }
+}
+module Arithmetic {
+  internal  {
+    frame = "897 405 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "152 460 577 613"
+        sizeHint = "577 511"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic1
+    expression = "cos(d1)*a+sin(d1)*b"
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    i5 = 0
+    i6 = 0
+    d1 = 0
+    d2 = 0
+    d3 = 0
+    d4 = 0
+    d5 = 0
+    d6 = 0
+    d7 = 0
+    d8 = 0
+    d9 = 0
+    d10 = 0
+    d11 = 0
+    d12 = 0
+    minValue = 0
+    maxValue = 1
+    setMinMaxValues = FALSE
+    dataType = int8
+    setDataType = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    extent = "1 1 1 1 1 1"
+    setExtent = FALSE
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    domainErrorHandling = Nothing
+    domainErrorReplacementValue = Zeroes
+    numberOfInputs = 2
+    expressionComment = ""
+    scalarVariablesComment = ""
+  }
+}
+module View2D {
+  internal  {
+    frame = "909 173 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "584 284 542 537"
         sizeHint = "400 400"
         wasOpen = yes
       }
@@ -49,8 +253,8 @@ module View2D {
     plane = "0 0 1 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0.95174658
-    lutWidth = 10.1883
+    lutCenter = 1.6937084
+    lutWidth = 15.048082
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -64,76 +268,6 @@ module View2D {
     maxPrecision = 4
     enableSlicing = TRUE
     useRelativeLUTIfNoInputImage = FALSE
-  }
-}
-module Arithmetic {
-  internal  {
-    frame = "833 421 96 56"
-    moduleGroupName = ""
-    windows  {
-      window _default {
-        geometry = "876 284 577 626"
-        sizeHint = "577 511"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = Arithmetic1
-    expression = "sqrt(a*a+b*b)"
-    i1 = 0
-    i2 = 0
-    i3 = 0
-    i4 = 0
-    i5 = 0
-    i6 = 0
-    d1 = 0
-    d2 = 0
-    d3 = 0
-    d4 = 0
-    d5 = 0
-    d6 = 0
-    d7 = 0
-    d8 = 0
-    d9 = 0
-    d10 = 0
-    d11 = 0
-    d12 = 0
-    minValue = 0
-    maxValue = 1
-    setMinMaxValues = FALSE
-    dataType = int8
-    setDataType = FALSE
-    extent = "1 1 1 1 1 1"
-    setExtent = FALSE
-    extent = "1 1 1 1 1 1"
-    setExtent = FALSE
-    updateMode = AutoUpdate
-    applyMode = AutoApply
-    domainErrorHandling = Nothing
-    domainErrorReplacementValue = Zeroes
-    numberOfInputs = 2
-    expressionComment = ""
-    scalarVariablesComment = ""
-  }
-}
-module MinMaxScan {
-  internal  {
-    frame = "825 333 112 56"
-    moduleGroupName = ""
-    windows  {
-      window _default {
-        geometry = "1133 443 465 255"
-        sizeHint = "441 255"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = MinMaxScan6
-    updateMode = AutoUpdate
-    typeSelect = "Proposed Data Type"
-    preferUnsigned = TRUE
   }
 }
 module KernelEditor {
@@ -635,7 +769,7 @@ module View2D {
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "511 198 542 537"
+        geometry = "1127 284 542 529"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -699,9 +833,9 @@ module Arithmetic {
     moduleGroupName = Gaussian
     windows  {
       window _default {
-        geometry = "760 409 577 613"
+        geometry = "771 387 577 613"
         sizeHint = "577 511"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -714,7 +848,7 @@ module Arithmetic {
     i4 = 0
     i5 = 0
     i6 = 0
-    d1 = 2.2
+    d1 = 3.14
     d2 = 0
     d3 = 0
     d4 = 0
@@ -926,7 +1060,7 @@ module GaussGradient {
       window _default {
         geometry = "1150 365 194 233"
         sizeHint = "194 233"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -1159,10 +1293,14 @@ module ImageLoad {
   }
 }
 connections  {
-  View2D1.inImage = MinMaxScan6.output0
-  Arithmetic1.input0 = FirstOrderSplit.output1
-  Arithmetic1.input1 = FirstOrderSplit.output1
+  MinMaxScan7.input0 = Arithmetic2.output0
+  Arithmetic2.input0 = FirstOrderSplit.output0
+  Arithmetic2.input1 = FirstOrderSplit.output1
+  View2D2.inImage = MinMaxScan7.output0
   MinMaxScan6.input0 = Arithmetic1.output0
+  Arithmetic1.input0 = FirstOrderSplit.output0
+  Arithmetic1.input1 = FirstOrderSplit.output1
+  View2D1.inImage = MinMaxScan6.output0
   SynchroView2D.inImage1 = MinMaxScan1.output0
   SynchroView2D.inImage2 = Convolution.output0
   SharpendImage.inImage2 = MinMaxScan5.output0
