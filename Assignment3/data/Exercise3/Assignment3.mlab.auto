@@ -1,0 +1,511 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module ToCSV {
+  internal  {
+    frame = "605 -27 72 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "135 356 143 270"
+        sizeHint = "143 270"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = ToCSV
+    input0 = 319.11084
+    input1 = 319.11084
+    input2 = 0.0061029843
+    input3 = 0.0061029843
+    input4 = 1.4560648
+    input5 = 5
+    Positive_Negative = FALSE
+    Train_Test = FALSE
+    apply = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "861 85 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "882 353 433 593"
+        sizeHint = "433 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Variance
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "725 89 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "695 383 469 593"
+        sizeHint = "469 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Correlation
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "589 81 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "807 488 433 593"
+        sizeHint = "433 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Coarsness
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "429 73 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "610 345 433 593"
+        sizeHint = "433 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Contrast
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module TextureFilter {
+  internal  {
+    frame = "717 193 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "820 279 490 354"
+        sizeHint = "490 354"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = CorrelationFilter
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    edgeMode = PadSrcClamp
+    kernelInput = ""
+    kernelInfo = "okay, 81 elems in 9x9x1x1x1x1"
+    inputSelect = "use Extent Input"
+    filterSelect = "Correlation (Co-ocurrence Matrix)"
+    scaleSelect = "factor   16"
+    neighbourSelect = "0 Degree (x+,y)"
+    distance = 1
+    deviance = 0
+    xCoordExt = 9
+    yCoordExt = 9
+    zCoordExt = 1
+    cCoordExt = 1
+    tCoordExt = 1
+    uCoordExt = 1
+    autoApply = TRUE
+    minMaxAdjust = FALSE
+    minValue = 0
+    maxValue = 0
+    distanceOn = FALSE
+    devianceOn = FALSE
+    neighbourSelectOn = TRUE
+    scaleSelectOn = TRUE
+    extentInput = TRUE
+    noFilter = FALSE
+    currentFilter = "Correlation (Co-ocurrence Matrix)"
+  }
+}
+module TextureFilter {
+  internal  {
+    frame = "857 193 112 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "491 399 490 354"
+        sizeHint = "490 354"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = VarianceFilter
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    edgeMode = PadSrcClamp
+    kernelInput = ""
+    kernelInfo = "okay, 81 elems in 9x9x1x1x1x1"
+    inputSelect = "use Extent Input"
+    filterSelect = "Variance (Co-ocurrence Matrix)"
+    scaleSelect = "factor   16"
+    neighbourSelect = "0 Degree (x+,y)"
+    distance = 1
+    deviance = 0
+    xCoordExt = 9
+    yCoordExt = 9
+    zCoordExt = 1
+    cCoordExt = 1
+    tCoordExt = 1
+    uCoordExt = 1
+    autoApply = TRUE
+    minMaxAdjust = FALSE
+    minValue = 0
+    maxValue = 0
+    distanceOn = FALSE
+    devianceOn = FALSE
+    neighbourSelectOn = TRUE
+    scaleSelectOn = TRUE
+    extentInput = TRUE
+    noFilter = FALSE
+    currentFilter = "Variance (Co-ocurrence Matrix)"
+  }
+}
+module TextureFilter {
+  internal  {
+    frame = "581 193 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "820 279 490 354"
+        sizeHint = "490 354"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = CoarsnessFilter
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    edgeMode = PadSrcClamp
+    kernelInput = ""
+    kernelInfo = "okay, 81 elems in 9x9x1x1x1x1"
+    inputSelect = "use Extent Input"
+    filterSelect = "Correlation (Co-ocurrence Matrix)"
+    scaleSelect = "factor   16"
+    neighbourSelect = "0 Degree (x+,y)"
+    distance = 1
+    deviance = 0
+    xCoordExt = 9
+    yCoordExt = 9
+    zCoordExt = 1
+    cCoordExt = 1
+    tCoordExt = 1
+    uCoordExt = 1
+    autoApply = TRUE
+    minMaxAdjust = FALSE
+    minValue = 0
+    maxValue = 0
+    distanceOn = FALSE
+    devianceOn = FALSE
+    neighbourSelectOn = TRUE
+    scaleSelectOn = TRUE
+    extentInput = TRUE
+    noFilter = FALSE
+    currentFilter = "Correlation (Co-ocurrence Matrix)"
+  }
+}
+module TextureFilter {
+  internal  {
+    frame = "429 193 104 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "455 115 490 354"
+        sizeHint = "490 354"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ContrastFilter
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    edgeMode = PadSrcClamp
+    kernelInput = ""
+    kernelInfo = "okay, 81 elems in 9x9x1x1x1x1"
+    inputSelect = "use Extent Input"
+    filterSelect = "Contrast (simple)"
+    scaleSelect = "factor   16"
+    neighbourSelect = "0 Degree (x+,y)"
+    distance = 1
+    deviance = 0
+    xCoordExt = 9
+    yCoordExt = 9
+    zCoordExt = 1
+    cCoordExt = 1
+    tCoordExt = 1
+    uCoordExt = 1
+    autoApply = TRUE
+    minMaxAdjust = FALSE
+    minValue = 0
+    maxValue = 0
+    distanceOn = FALSE
+    devianceOn = FALSE
+    neighbourSelectOn = FALSE
+    scaleSelectOn = FALSE
+    extentInput = TRUE
+    noFilter = FALSE
+    currentFilter = "Contrast (simple)"
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "397 341 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "828 238 433 593"
+        sizeHint = "433 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageStatistics1
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module ImageStatistics {
+  internal  {
+    frame = "277 77 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "782 139 433 593"
+        sizeHint = "433 593"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Average
+    innerMin = 0
+    innerMax = 1
+    autoUpdate = TRUE
+    perSlice = FALSE
+    currentSlice = 0
+    lowerWidth = 0
+    upperWidth = 0
+    useMask = FALSE
+  }
+}
+module TextureFilter {
+  internal  {
+    frame = "277 193 104 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "179 527 490 354"
+        sizeHint = "490 354"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AverageFilter
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    edgeMode = PadSrcClamp
+    kernelInput = ""
+    kernelInfo = "okay, 81 elems in 9x9x1x1x1x1"
+    inputSelect = "use Extent Input"
+    filterSelect = "Contrast (simple)"
+    scaleSelect = "factor   16"
+    neighbourSelect = "0 Degree (x+,y)"
+    distance = 1
+    deviance = 0
+    xCoordExt = 9
+    yCoordExt = 9
+    zCoordExt = 1
+    cCoordExt = 1
+    tCoordExt = 1
+    uCoordExt = 1
+    autoApply = TRUE
+    minMaxAdjust = FALSE
+    minValue = 0
+    maxValue = 0
+    distanceOn = FALSE
+    devianceOn = FALSE
+    neighbourSelectOn = FALSE
+    scaleSelectOn = FALSE
+    extentInput = TRUE
+    noFilter = FALSE
+    currentFilter = "Contrast (simple)"
+  }
+}
+module Resample3D {
+  internal  {
+    frame = "637 293 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "989 252 327 337"
+        sizeHint = "327 337"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Resample3D
+    keep = "Scale factor"
+    filter = Lanczos_3
+    isotropic = FALSE
+    filterAlways = FALSE
+    filterAlwaysTolerance = 0
+    zoom = "0.25 0.25 1"
+    imageSize = "64 64 1"
+    voxelSize = "1.41111112162471 1.41111112162471 1"
+    subVoxelShift = "0 0 0"
+    useReferenceImage = FALSE
+  }
+}
+module ColorMatrix {
+  internal  {
+    frame = "641 365 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "797 427 470 189"
+        sizeHint = "470 189"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ColorMatrix
+    dimensionSelect = 1D
+    matrix00 = 0.33000001
+    matrix01 = 0.33000001
+    matrix02 = 0.33000001
+    matrix03 = 0
+    matrix10 = 0
+    matrix11 = 1
+    matrix12 = 0
+    matrix13 = 0
+    matrix20 = 0
+    matrix21 = 0
+    matrix22 = 1
+    matrix23 = 0
+    matrix30 = 0
+    matrix31 = 0
+    matrix32 = 0
+    matrix33 = 1
+    autoApply = TRUE
+  }
+}
+module ImageLoad {
+  internal  {
+    frame = "641 445 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1070 208 311 357"
+        sizeHint = "311 357"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageLoad
+    filename = C:/Users/Luc/Documents/GitHub/CAD/Assignment3/data/Exercise3/Train/Tumor/T1.tiff
+    autoLoad = TRUE
+    readRaw = FALSE
+    rawX = 1
+    rawY = 1
+    rawZ = 1
+    rawC = 1
+    rawT = 1
+    rawU = 1
+    dataTypeRaw = "unsigned int8"
+    planarConfig = Contiguous
+    byteOrder = LittleEndian
+    dataOffset = 0
+    pageSizeHint = "0 0 0 0 0 0"
+    suppressErrorLog = FALSE
+    dicomIgnoreHalfVoxelShift = FALSE
+  }
+}
+connections  {
+  ToCSV.input0 = Average.totalMean
+  ToCSV.input1 = Contrast.totalMean
+  ToCSV.input2 = Coarsness.totalMean
+  ToCSV.input3 = Correlation.totalMean
+  ToCSV.input4 = Variance.totalMean
+  Variance.input0 = VarianceFilter.output0
+  Correlation.input0 = CorrelationFilter.output0
+  Coarsness.input0 = CoarsnessFilter.output0
+  Contrast.input0 = ContrastFilter.output0
+  CorrelationFilter.input0 = Resample3D.output0
+  VarianceFilter.input0 = Resample3D.output0
+  CoarsnessFilter.input0 = Resample3D.output0
+  ContrastFilter.input0 = Resample3D.output0
+  ImageStatistics1.input0 = ImageLoad.output0
+  Average.input0 = AverageFilter.output0
+  AverageFilter.input0 = Resample3D.output0
+  Resample3D.input0 = ColorMatrix.output0
+  ColorMatrix.input0 = ImageLoad.output0
+}
+networkModel = ""

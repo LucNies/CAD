@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------------------
+//! DIAGToCSV module definitions.
+/*!
+// \file    ToCSV.script
+// \author  Luc Nies
+// \date    2016-02-22
+*/
+//----------------------------------------------------------------------------------
+
+
+
+
+
+Window {
+ 
+  Vertical {
+  CheckBox Positive_Negative {title = "Positive/Negative"}
+  CheckBox Train_Test {title = "Train/Test"}
+  
+    margin = 3
+    Field input0 {
+      tooltip = ""
+    }
+    Field input1 {
+      tooltip = ""
+    }
+    Field input2 {
+      tooltip = ""
+    }
+    Field input3 {
+      tooltip = ""
+    }
+    Field input4 {
+      tooltip = ""
+    }
+    Field input5 {
+      tooltip = ""
+    }
+	margin = 3
+	Button apply {title = "Apply"}
+  }
+}

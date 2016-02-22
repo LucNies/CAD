@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! DIAGToCSV module definitions.
+/*!
+// \file    DIAGToCSV.def
+// \author  Luc Nies
+// \date    2016-02-22
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule ToCSV {
+  DLL                = "DIAGToCSV"
+
+  genre              = ""
+  author             = "Luc Nies"
+  comment            = "Ass3"
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/ToCSV.script
+}  

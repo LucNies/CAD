@@ -606,7 +606,7 @@ module KernelEditor {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "870 198 407 796"
+        geometry = "870 205 407 789"
         sizeHint = "407 796"
         wasOpen = no
       }
@@ -624,11 +624,11 @@ module KernelEditor {
     precision = 6
     value = 1
     numElements = 9
-    elementSum = 0
-    status = "#Elems=9, Sum=0.000000, 3 Undos, 0 Redos"
-    kernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
-(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
-(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+    elementSum = 1
+    status = "#Elems=9, Sum=1.000000, 4 Undos, 0 Redos"
+    kernel = "(*,0,0,0,0,0):    0.000000,  0.000000,  0.000000
+(*,1,0,0,0,0):    0.000000,  1.000000,  0.000000
+(*,2,0,0,0,0):    0.000000,  0.000000,  0.000000
 
 "
   }
@@ -639,7 +639,7 @@ module SynchroView2D {
     moduleGroupName = "Simple Convolution Kernels"
     windows  {
       window _default {
-        geometry = "184 329 804 278"
+        geometry = "30 234 804 263"
         sizeHint = "804 400"
         wasOpen = no
       }
@@ -666,10 +666,10 @@ module SynchroView2D {
     filterMode = FILTER_NEAREST
     slice2 = 0
     timepoint2 = 0
-    lut1w = 1020
-    lut1c = 0
-    lut2w = 1
-    lut2c = 0.5025
+    lut1w = 255
+    lut1c = 127.5
+    lut2w = 255
+    lut2c = 127.5
     annotationColor = "0.899999976158142 0.899999976158142 0.899999976158142"
     borderOn = FALSE
     drawCurrentPos = FALSE
@@ -858,7 +858,7 @@ module View2D {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "1010 319 400 420"
+        geometry = "835 142 400 420"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -1442,21 +1442,21 @@ module Convolution {
     intervalMinOfFilteredVoxels = 0
     intervalMaxOfFilteredVoxels = 1024
     useIntervalOfFilteredVoxels = FALSE
-    externalKernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
-(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
-(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+    externalKernel = "(*,0,0,0,0,0):    0.000000,  0.000000,  0.000000
+(*,1,0,0,0,0):    0.000000,  1.000000,  0.000000
+(*,2,0,0,0,0):    0.000000,  0.000000,  0.000000
 
 "
     kernelInfo = "9 elems, 3x3x1x1x1x1"
-    kernelOutput = "(0,0,0,0,0,0):1.000000
+    kernelOutput = "(0,0,0,0,0,0):0.000000
 (1,0,0,0,0,0):0.000000
-(2,0,0,0,0,0):-1.000000
-(0,1,0,0,0,0):2.000000
-(1,1,0,0,0,0):0.000000
-(2,1,0,0,0,0):-2.000000
-(0,2,0,0,0,0):1.000000
+(2,0,0,0,0,0):0.000000
+(0,1,0,0,0,0):0.000000
+(1,1,0,0,0,0):1.000000
+(2,1,0,0,0,0):0.000000
+(0,2,0,0,0,0):0.000000
 (1,2,0,0,0,0):0.000000
-(2,2,0,0,0,0):-1.000000
+(2,2,0,0,0,0):0.000000
 "
     predefKernel = "From Kernel Input"
   }
@@ -1559,21 +1559,21 @@ module Convolution {
     intervalMinOfFilteredVoxels = 0
     intervalMaxOfFilteredVoxels = 1024
     useIntervalOfFilteredVoxels = FALSE
-    externalKernel = "(*,0,0,0,0,0):    1.000000,  0.000000, -1.000000
-(*,1,0,0,0,0):    2.000000,  0.000000, -2.000000
-(*,2,0,0,0,0):    1.000000,  0.000000, -1.000000
+    externalKernel = "(*,0,0,0,0,0):    0.000000,  0.000000,  0.000000
+(*,1,0,0,0,0):    0.000000,  1.000000,  0.000000
+(*,2,0,0,0,0):    0.000000,  0.000000,  0.000000
 
 "
     kernelInfo = "9 elems, 3x3x1x1x1x1"
-    kernelOutput = "(0,0,0,0,0,0):1.000000
+    kernelOutput = "(0,0,0,0,0,0):0.000000
 (1,0,0,0,0,0):0.000000
-(2,0,0,0,0,0):-1.000000
-(0,1,0,0,0,0):2.000000
-(1,1,0,0,0,0):0.000000
-(2,1,0,0,0,0):-2.000000
-(0,2,0,0,0,0):1.000000
+(2,0,0,0,0,0):0.000000
+(0,1,0,0,0,0):0.000000
+(1,1,0,0,0,0):1.000000
+(2,1,0,0,0,0):0.000000
+(0,2,0,0,0,0):0.000000
 (1,2,0,0,0,0):0.000000
-(2,2,0,0,0,0):-1.000000
+(2,2,0,0,0,0):0.000000
 "
     predefKernel = "From Kernel Input"
   }
@@ -1592,7 +1592,7 @@ module MinMaxScan {
 }
 module ImageLoad {
   internal  {
-    frame = "1809 797 96 56"
+    frame = "961 1005 96 56"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -1668,6 +1668,7 @@ connections  {
   Convolution.input0 = MinMaxScan.output0
   Convolution.externalKernel = KernelEditor.kernel
   Convolution.predefKernel = Convolution1.predefKernel
+  MinMaxScan.input0 = ImageLoad.output0
 }
 networkModel  {
   parentItems  {
