@@ -1,0 +1,90 @@
+﻿Build started 2/15/2016 11:06:18 AM.
+Project "C:\DIAG\diaglibs\mevismodules\DIAG\ApplicationBase\Sources\ML\DIAGEqualizeHistogram\DIAGEqualizeHistogram.vcxproj" on node 2 (Build target(s)).
+CustomBuild:
+  Compiling DIAGEqualizeHistogram.pro...
+  Running C:\Program Files\MeVisLab2.5.1VC11-64\Packages/MeVis/ThirdParty/Python/MeVisPython.exe C:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\BuildSystem\BuildTools\win32\createVCXProj.py DIAGEqualizeHistogram VC11-64
+  Generating project file for VC11-64
+  Profile target type: dll
+  Profile template type: vclib
+  C:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\bin\qmake.exe -t vclib -o tmp_DIAGEqualizeHistogram.vcxproj INITIAL_CONFIG = $$CONFIG CONFIG -= release debug CONFIG += debug_and_release  DIAGEqualizeHistogram.pro -after message(MLAB_COMPILE_MODE=$$MLAB_COMPILE_MODE) message(MSVC_NO_POSTBUILD_STEP=$$MSVC_NO_POSTBUILD_STEP) message(MEVIS_UNITTEST=$$MEVIS_UNITTEST) message(ENVIRONMENT=$$ENVIRONMENT) message(IGNORED_CONFIG=$$IGNORED_CONFIG) message(MSVC_TARGETDLLEXTENSION=$$MSVC_TARGETDLLEXTENSION) message(TARGET_DEBUG_POSTFIX=$$TARGET_DEBUG_POSTFIX) message(MSVC_NO_MANIFEST=$$MSVC_NO_MANIFEST) message(QMAKE_CXXFLAGS=$$QMAKE_CXXFLAGS) message(TARGET=$$TARGET) message(MSVC_POSTBUILD_PRE=$$MSVC_POSTBUILD_PRE) message(DESTDIR=$$DESTDIR) message(MSVC_COMPILERSTACK=$$MSVC_COMPILERSTACK) message(MSVC_RELEASE_WITH_DEBUG_INFO=$$MSVC_RELEASE_WITH_DEBUG_INFO) message(MSVC_MANIFEST_FRAGMENTS=$$MSVC_MANIFEST_FRAGMENTS) message(MSVC_KEEP_QMAKE_POST_LINK=$$MSVC_KEEP_QMAKE_POST_LINK) message(TEMPLATE=$$TEMPLATE) message(DLLDESTDIR=$$DLLDESTDIR) message(CONFIG=$$CONFIG)
+  Project MESSAGE: loading DIAG_ApplicationBase.pri
+  Project MESSAGE: loading SystemInit.pri
+  Project MESSAGE: loading MeVisPython.pri
+  Project MESSAGE: loading MeVisLab_Standard.pri
+  Project MESSAGE: loading MeVis_Foundation.pri
+  Project MESSAGE: loading MeVis_ThirdParty.pri
+  Project MESSAGE: loading System.pri
+  Project MESSAGE: loading DIAG_ApplicationBase.pri
+  Project MESSAGE: loading SystemInit.pri
+  Project MESSAGE: loading MeVisPython.pri
+  Project MESSAGE: loading MeVisLab_Standard.pri
+  Project MESSAGE: loading MeVis_Foundation.pri
+  Project MESSAGE: loading MeVis_ThirdParty.pri
+  Project MESSAGE: loading System.pri
+  Project MESSAGE: loading DIAG_ApplicationBase.pri
+  Project MESSAGE: loading SystemInit.pri
+  Project MESSAGE: loading MeVisPython.pri
+  Project MESSAGE: loading MeVisLab_Standard.pri
+  Project MESSAGE: loading MeVis_Foundation.pri
+  Project MESSAGE: loading MeVis_ThirdParty.pri
+  Project MESSAGE: loading System.pri
+  MEVIS_PROJECT_CONFIG: ML,MLUtilities,MLLinearAlgebra,MLMemoryManager,MLProfilingManager,MLMemoryManagerHeader,boost_thread,boost
+  MEVIS_IGNORED_CONFIG: lex,yacc,warn_on,uic,resources,rtti_off,exceptions_off,stl_off,incremental_off,thread_off,windows,ReleaseBuild,Release,build_pass,incremental,flat,link_prl,precompile_header,autogen_precompile_source,copy_dir_files,debug_and_release,debug_and_release_target,embed_manifest_dll,embed_manifest_exe,shared,stl,exceptions,rtti,mmx,3dnow,sse,sse2,release,dll,win64,64bit,no_autoqmake,thread,no_versionlink
+  MEVIS_TARGET: DIAGEqualizeHistogram
+  MEVIS_DESTDIR: ../../../lib
+  MEVIS_DEBUG_DESTDIR: ../../../lib
+  MEVIS_DLLDESTDIR: ../../../lib
+  **ResultFile**: C:\DIAG\diaglibs\mevismodules\DIAG\ApplicationBase\Sources\ML\DIAGEqualizeHistogram\DIAGEqualizeHistogram.pro
+  **ResultFile**: C:\DIAG\diaglibs\mevismodules\DIAG\ApplicationBase\Sources\ML\DIAGEqualizeHistogram\DIAGEqualizeHistogram.vcxproj
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\SharedIncludes" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLUtilities" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include" /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\misc\boost" /I. /I"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2012" /Zi /nologo /W4 /WX- /MP /Od /D _WINDOWS /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D MEVIS_TARGET=DIAGEqualizeHistogram /D MEVIS_64BIT /D MEVISLAB_VERSION=205 /D ML_VERSION_2 /D BOOST_ALL_DYN_LINK /D DEBUG /D MeVisLab /D MEVISLAB /D __LITTLE_ENDIAN__ /D "ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport)" /D "ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport)" /D ML_RETURN_VALUE_SHOULD_BE_USED= /D NOMINMAX /D _CRT_SECURE_NO_DEPRECATE /D DIAGEQUALIZEHISTOGRAM_EXPORTS /D ML_WARN_DEPRECATED /D _WINDLL /Gm- /EHsc /MDd /GS- /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"tmp\debug\obj\\" /Fd"tmp\debug\obj\vc110.pdb" /FR"tmp\debug\obj\\" /Gd /TP /wd4201 /wd4251 /errorReport:prompt -Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 DIAGEqualizeHistogramInit.cpp mlEqualizeHistogram.cpp
+  DIAGEqualizeHistogramInit.cpp
+  mlEqualizeHistogram.cpp
+mlEqualizeHistogram.cpp(62): warning C4100: 'outputImage' : unreferenced formal parameter
+mlEqualizeHistogram.cpp(70): warning C4100: 'outputIndex' : unreferenced formal parameter
+mlEqualizeHistogram.cpp(70): warning C4100: 'inputIndex' : unreferenced formal parameter
+mlEqualizeHistogram.cpp(80): warning C4995: 'ML_CALCULATEOUTPUTSUBIMAGE_NUM_INPUTS_1_CPP': name was marked as #pragma deprecated
+mlEqualizeHistogram.cpp(84): warning C4100: 'outputIndex' : unreferenced formal parameter
+          mlEqualizeHistogram.cpp(80) : see reference to function template instantiation 'void ml::EqualizeHistogram::calculateOutputSubImage<MLint8>(ml::TSubImage<DATATYPE> *,int,ml::TSubImage<DATATYPE> *)' being compiled
+          with
+          [
+              DATATYPE=MLint8
+          ]
+  Generating Code...
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"tmp\debug\obj\DIAGEqualizeHistogram_d.dll" /NOLOGO /LIBPATH:"c:\Program Files\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\lib" /LIBPATH:C:/DIAG/diaglibs/mevismodules/DIAG/ApplicationBase/lib /LIBPATH:"C:/Program Files/MeVisLab2.5.1VC11-64/Packages/MeVisLab/Standard/lib" /LIBPATH:"C:/Program Files/MeVisLab2.5.1VC11-64/Packages/MeVis/Foundation/lib" ML_d.lib MLLinearAlgebra_d.lib MLMemoryManager_d.lib MLProfilingManager_d.lib MLUtilities_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"tmp\debug\obj\DIAGEqualizeHistogram_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL tmp\debug\obj\DIAGEqualizeHistogramInit.obj
+  tmp\debug\obj\mlEqualizeHistogram.obj
+     Creating library tmp\debug\obj\DIAGEqualizeHistogram_d.lib and object tmp\debug\obj\DIAGEqualizeHistogram_d.exp
+  DIAGEqualizeHistogram.vcxproj -> C:\DIAG\diaglibs\mevismodules\DIAG\ApplicationBase\Sources\ML\DIAGEqualizeHistogram\tmp\debug\obj\DIAGEqualizeHistogram_d.dll
+BscMake:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"tmp\debug\obj\DIAGEqualizeHistogram_d.bsc" tmp\debug\obj\DIAGEqualizeHistogramInit.sbr tmp\debug\obj\mlEqualizeHistogram.sbr
+PostBuildEvent:
+  if not exist "../../../lib" mkdir "../../../lib"
+  if exist "../../../lib\updated\DIAGEqualizeHistogram_d.dll" (
+    echo removing old updated DLL
+    del "../../../lib\updated\DIAGEqualizeHistogram_d.dll"
+  )
+  echo copy "tmp\debug\obj\DIAGEqualizeHistogram_d.dll" "../../../lib\DIAGEqualizeHistogram_d.dll"
+  copy "tmp\debug\obj\DIAGEqualizeHistogram_d.dll" "../../../lib\DIAGEqualizeHistogram_d.dll"
+  if errorLevel 1 (
+    echo DLL locked, copying to /updated subdir - and removing source file
+    if not exist "../../../lib\updated" mkdir "../../../lib\updated"
+    copy "tmp\debug\obj\DIAGEqualizeHistogram_d.dll" "../../../lib\updated\DIAGEqualizeHistogram_d.dll"
+    del "tmp\debug\obj\DIAGEqualizeHistogram_d.dll"
+  )
+  echo copy "tmp\debug\obj\DIAGEqualizeHistogram_d.pdb" "../../../lib"
+  copy "tmp\debug\obj\DIAGEqualizeHistogram_d.pdb" "../../../lib"
+  echo if exist "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" copy "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" "../../../lib"
+  if exist "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" copy "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" "../../../lib"
+  :VCEnd
+  copy "tmp\debug\obj\DIAGEqualizeHistogram_d.dll" "../../../lib\DIAGEqualizeHistogram_d.dll"
+          1 file(s) copied.
+  copy "tmp\debug\obj\DIAGEqualizeHistogram_d.pdb" "../../../lib"
+          1 file(s) copied.
+  if exist "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" copy "tmp\debug\obj\DIAGEqualizeHistogram_d.lib" "../../../lib"
+          1 file(s) copied.
+Done Building Project "C:\DIAG\diaglibs\mevismodules\DIAG\ApplicationBase\Sources\ML\DIAGEqualizeHistogram\DIAGEqualizeHistogram.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:33.18
