@@ -8,9 +8,9 @@ module ToCSV {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "135 356 143 270"
-        sizeHint = "143 270"
-        wasOpen = yes
+        geometry = "1735 301 152 270"
+        sizeHint = "152 270"
+        wasOpen = no
       }
     }
   }

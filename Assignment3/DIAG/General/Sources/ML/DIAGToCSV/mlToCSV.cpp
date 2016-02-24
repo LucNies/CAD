@@ -60,25 +60,27 @@ void ToCSV::handleNotification(Field* field)
 {
 	string pathName = "C:/Users/Luc/Documents/GitHub/CAD/";
 	string fileName = pathName + "featuredata.csv";
-  // Handle changes of module parameters and input image fields here.
+
 	if (_applyFld == field)
 	{
-		ofstream file;
-		ifstream outFile(fileName);
-		if(!outFile)//file does not exist yet
+		ofstream outFile;
+		if(FILE *file = fopen(fileName.c_str(), "r"))//checks if file exsists
 		{
-			file.open(fileName);
-			file << "Average" << "," << "Contrast" << "," << "Coarsness" << "," << "Correlation" << "," << "Variation" << "," << "k"<<  endl;
-			file << (*_input0Fld).getFloatValue() << "," << _input1Fld << "," << _input2Fld << "," << _input3Fld << "," << _input4Fld << "," << _input5Fld << endl;
+			fclose(file);
+			outFile.open(fileName, ios_base::app);
+			outFile << (*_input0Fld).getFloatValue() << "," << (*_input1Fld).getFloatValue() << "," << (*_input2Fld).getFloatValue() << "," << (*_input3Fld).getFloatValue() << "," << (*_input4Fld).getFloatValue() << "," << (*_input5Fld).getIntValue() << endl;
+			mlDebug("Existing file");
 		}
-		else
+		else//does not exist
 		{
-			file.open(fileName);
-			file << (*_input0Fld).getFloatValue() << "," << (*_input1Fld).getFloatValue() << "," << (*_input2Fld).getFloatValue() << "," << (*_input3Fld).getFloatValue() << "," << (*_input4Fld).getFloatValue() << "," << (*_input5Fld).getIntValue() << endl;
+			outFile.open(fileName);
+			outFile << "Average" << "," << "Contrast" << "," << "Coarsness" << "," << "Correlation" << "," << "Variation" << "," << "k" << endl;
+			outFile << (*_input0Fld).getFloatValue() << "," << (*_input1Fld).getFloatValue() << "," << (*_input2Fld).getFloatValue() << "," << (*_input3Fld).getFloatValue() << "," << (*_input4Fld).getFloatValue() << "," << (*_input5Fld).getIntValue() << endl;
+			mlDebug("New file");
 		}
 
-		file.close();
-
+		outFile.close();
+		mlDebug("Apply");
 	}
 }
 

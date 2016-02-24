@@ -1,4 +1,4 @@
-﻿Build started 22-2-2016 23:36:46.
+﻿Build started 24-2-2016 10:39:56.
      1>Project "C:\Users\Luc\Documents\GitHub\CAD\Assignment3\DIAG\General\Sources\ML\DIAGToCSV\DIAGToCSV.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\SharedIncludes" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\ML\include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLUtilities" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include" /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\misc\boost" /I. /I"c:\Users\Luc\AppData\Local\MeVisLab2.5.1VC11-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2012" /Zi /nologo /W4 /WX- /MP /Od /D _WINDOWS /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D MEVIS_TARGET=DIAGToCSV /D MEVIS_64BIT /D MEVISLAB_VERSION=205 /D ML_VERSION_2 /D BOOST_ALL_DYN_LINK /D DEBUG /D MeVisLab /D MEVISLAB /D __LITTLE_ENDIAN__ /D "ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport)" /D "ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport)" /D ML_RETURN_VALUE_SHOULD_BE_USED= /D NOMINMAX /D _CRT_SECURE_NO_DEPRECATE /D DIAGTOCSV_EXPORTS /D ML_WARN_DEPRECATED /D _WINDLL /Gm- /EHsc /MDd /GS- /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"tmp\debug\obj\\" /Fd"tmp\debug\obj\vc110.pdb" /FR"tmp\debug\obj\\" /Gd /TP /wd4201 /wd4251 /errorReport:prompt -Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 mlToCSV.cpp
@@ -44,4 +44,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.98
+Time Elapsed 00:00:06.27
