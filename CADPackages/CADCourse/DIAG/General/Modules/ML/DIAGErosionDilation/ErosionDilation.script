@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------------
+//! DIAGErosionDilation module definitions.
+/*!
+// \file    ErosionDilation.script
+// \author  Luc Nies
+// \date    2016-03-04
+*/
+//----------------------------------------------------------------------------------
+
+
+Window {
+  Vertical {
+    margin = 3
+    Field radius {
+      tooltip = ""
+    }
+    CheckBox erosion {
+      tooltip = "Erosion instead ofdilation when checked"
+    }
+  }
+}

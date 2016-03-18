@@ -1,0 +1,8 @@
+
+Package {
+  packageGroup = "DIAG"
+  packageName  = "General"
+
+  owner = "Luc"
+  description = ""
+}

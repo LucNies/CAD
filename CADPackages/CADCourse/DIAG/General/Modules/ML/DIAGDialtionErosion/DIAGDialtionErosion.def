@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! DIAGDialtionErosion module definitions.
+/*!
+// \file    DIAGDialtionErosion.def
+// \author  Luc Nies
+// \date    2016-03-04
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule DialtionErosion {
+  DLL                = "DIAGDialtionErosion"
+
+  genre              = ""
+  author             = "Luc Nies"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/DialtionErosion.script
+}  

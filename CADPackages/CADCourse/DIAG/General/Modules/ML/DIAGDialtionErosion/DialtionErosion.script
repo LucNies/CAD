@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------------
+//! DIAGDialtionErosion module definitions.
+/*!
+// \file    DialtionErosion.script
+// \author  Luc Nies
+// \date    2016-03-04
+*/
+//----------------------------------------------------------------------------------
+
+
+Window {
+  Vertical {
+    margin = 3
+    Field radius {
+      tooltip = ""
+    }
+    CheckBox erosion/dilation {
+      tooltip = "erosion if checked, dilation otherwise"
+    }
+  }
+}

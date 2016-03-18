@@ -1,0 +1,360 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module View2D {
+  internal  {
+    frame = "573 61 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1079 325 609 461"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D2
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 94.987495
+    lutWidth = 18.487501
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module View2D {
+  internal  {
+    frame = "957 -131 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "898 185 677 623"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 184.87498
+    lutWidth = 303.45007
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+module ErosionDilation {
+  internal  {
+    frame = "957 69 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "909 540 193 61"
+        sizeHint = "117 61"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ErosionDilation2
+    radius = 5
+    erosion = TRUE
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "945 -51 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "483 179 217 64"
+        sizeHint = "215 64"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Arithmetic2
+    function = Subtract
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module ErosionDilation {
+  internal  {
+    frame = "741 149 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "307 176 120 61"
+        sizeHint = "117 61"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ErosionDilation1
+    radius = 5
+    erosion = TRUE
+  }
+}
+module ErosionDilation {
+  internal  {
+    frame = "745 229 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "254 334 269 61"
+        sizeHint = "117 61"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ErosionDilation
+    radius = 5
+    erosion = FALSE
+  }
+}
+module ImageLoad {
+  internal  {
+    frame = "753 517 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1467 537 311 357"
+        sizeHint = "311 357"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageLoad
+    filename = "C:/Users/Luc/Documents/GitHub/CAD/Assignment5/Piccas/input images/retinaImage.jpg"
+    autoLoad = TRUE
+    readRaw = FALSE
+    rawX = 1
+    rawY = 1
+    rawZ = 1
+    rawC = 1
+    rawT = 1
+    rawU = 1
+    dataTypeRaw = "unsigned int8"
+    planarConfig = Contiguous
+    byteOrder = LittleEndian
+    dataOffset = 0
+    pageSizeHint = "0 0 0 0 0 0"
+    suppressErrorLog = FALSE
+    dicomIgnoreHalfVoxelShift = FALSE
+  }
+}
+module SubImage {
+  internal  {
+    frame = "749 397 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1212 101 395 533"
+        sizeHint = "395 533"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SubImage
+    boxInput = "0 0 0 0 0 0 -1 -1 -1 -1 -1 -1"
+    autoApplyBox = FALSE
+    correctForNegativeSubImageExtents = FALSE
+    enableBoxClamping = FALSE
+    x = 0
+    sx = 1002
+    modifyX = TRUE
+    y = 0
+    sy = 668
+    modifyY = TRUE
+    z = 0
+    sz = 1
+    modifyZ = TRUE
+    c = 0
+    sc = 1
+    modifyC = TRUE
+    t = 0
+    st = 1
+    modifyT = TRUE
+    u = 0
+    su = 1
+    modifyU = FALSE
+    fillValue = 0
+    mode = VoxelStartSize
+    autoApply = TRUE
+  }
+}
+module Threshold {
+  internal  {
+    frame = "757 325 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "146 505 260 63"
+        sizeHint = "260 63"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Threshold
+    threshold = 230
+    minValue = 0
+    maxValue = 255
+    relativeThreshold = FALSE
+  }
+}
+module View2D {
+  internal  {
+    frame = "781 -75 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1028 242 773 678"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 0 1 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 124.31247
+    lutWidth = 130.68752
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = FALSE
+  }
+}
+connections  {
+  View2D2.inImage = Threshold.output0
+  View2D1.inImage = Arithmetic2.output0
+  ErosionDilation2.input0 = ErosionDilation1.output0
+  Arithmetic2.input0 = ErosionDilation1.output0
+  Arithmetic2.input1 = ErosionDilation2.output0
+  ErosionDilation1.input0 = ErosionDilation.output0
+  ErosionDilation.input0 = Threshold.output0
+  SubImage.input0 = ImageLoad.output0
+  Threshold.input0 = SubImage.output0
+  View2D.inImage = ErosionDilation1.output0
+}
+networkModel = ""

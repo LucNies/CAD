@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! DIAGErosionDilate module definitions.
+/*!
+// \file    DIAGErosionDilate.def
+// \author  Luc Nies
+// \date    2016-03-04
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule ErosionDilate {
+  DLL                = "DIAGErosionDilate"
+
+  genre              = ""
+  author             = "Luc Nies"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/ErosionDilate.script
+}  
