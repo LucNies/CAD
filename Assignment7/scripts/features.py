@@ -11,23 +11,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 from random import shuffle
 from sklearn import linear_model
+from scipy import misc
 import pickle
 from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
 
-loader = load_data.loader(batch_size = 1)
+
+loader = load_data.loader(first_run = False)
 
 
-
-def get_features_labels(images, truth, patching):
+"""
+Only pass one image at a time
+"""
+def get_patch_features(images, truth, patching):
     features = []
     labels = []
     
-    #alleen voor batchsize 1!!
+
     patches, coords = patching.patch(images)
-    features = patches#aanpassen als we vaker willen
+    features = patches
     for (x,y) in coords:
-        labels.append(truth[0][x][y])
+        labels.append(truth[x][y])
         
     
     shuffled = np.arange(len(labels))
@@ -37,29 +41,40 @@ def get_features_labels(images, truth, patching):
     
     return features, labels
 
+def remove_black(features, labels):
+
+
+    print "none"
 
 def train():
     clf = linear_model.SGDClassifier()
     patching = patcher.ImPatch()
-    while loader.batch_i < loader.n_batch:
-        data, truth = loader.load_batch()
-        features, labels = get_features_labels(data, truth, patching)
+    train_images, train_labels = loader.get_train_data()
+    for i, image in enumerate(train_images):
+        features, labels = get_patch_features(image, train_labels[i], patching)
         clf.partial_fit(features, labels, [0,1])
-        print loader.batch_i/loader.n_batch
+        print i/len(train_images)
     
     joblib.dump(clf, 'classifier.pkl')
     
 def test():
     clf = joblib.load('classifier.pkl')  
     patching = patcher.ImPatch()
-    testloader = load_data.loader(batch_size = 1)
-    while testloader.batch_i < loader.n_batch:
-        data, truth = loader.load_batch()
-        features, labels = get_features_labels(data, truth, patching)
+    test_images, test_labels = loader.get_test_data()
+    predictions = np.zeros(test_labels.shape)
+    for i, image in enumerate(test_images):
+        features, labels = get_patch_features(image, test_labels[i], patching)
         prediction = clf.predict(features)
-
+        #predictions[i] = prediction werkt niet, want randenm
         print calc_dice(prediction, labels)
         
+    #save_result_as_image(predictions, labels)
+
+def save_result_as_image(predictions, labels, file_path = '../images/'):
+    for i, label in enumerate(labels):
+        misc.imsave(str(i) + 'lable.png', label)
+        misc.imsave(str(i) + 'prediction.png', predictions[i])
+    
     
 def calc_dice(predictions, labels):
     NNEQ = np.sum(predictions != labels)
@@ -78,6 +93,9 @@ def create_location_feature():
         loader = load_data.loader()
         data, truth = loader.load_batch()
         locations = np.zeros()
-        
+ 
+
+
+
 #train()
 test()
