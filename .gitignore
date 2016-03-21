@@ -54,3 +54,4 @@ Temporary Items
 *.pyc
 *.pkl
 *.npy
+.idea

@@ -28,7 +28,7 @@ class SGD:
         loader = self.loader
         clf = linear_model.SGDClassifier()
         patching = self.patching
-        while loader.batch_i <= 1:#not loader.reset:
+        while not loader.reset:
             data, truth = loader.load_batch()
             features, labels = get_features_labels(data, truth, patching)
             clf.partial_fit(features, labels, [0,1])
@@ -63,7 +63,7 @@ class SGD:
         for i,t in enumerate(np.arange(0,1,0.1)):
             predictions = predictions >= t
             accuracy[i] = calc_dice(predictions, labels)
-            print "t={}, Mean accuracy(dice): ".format(t) + str(accuracy[i])
+            print "t={}, Mean error(dice): ".format(t) + str(accuracy[i])
         return np.mean(accuracy)
 
     def classify(self, image):
