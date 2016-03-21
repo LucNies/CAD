@@ -8,11 +8,10 @@ from __future__ import division
 from random import shuffle
 from sklearn import linear_model
 from scipy import misc
-
 from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
 
-
+import load_data2
 import numpy as np
 import patcher
 import math
@@ -44,7 +43,7 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
         else:
             labels.append(truth[x][y])
     labels = reorder(labels, shuffled)
-    labels = [l!=0 for l in labels]# nog ff naar kijken
+    #labels = [l!=0 for l in labels]# nog ff naar kijken
     
     return features, labels
     
@@ -132,4 +131,7 @@ def dist_to_center(patches, coords, image_shape):
     return result
 
 
-
+if __name__ == "__main__"  :
+    loader = load_data2.loader(first_run = False)
+    images, labels = loader.get_test_data()
+    get_features_labels(images[0], labels[0])

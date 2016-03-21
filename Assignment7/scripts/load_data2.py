@@ -43,7 +43,7 @@ class loader():
 
         #split test and train set
         np.random.shuffle(file_names)
-        truth_names = file_names[:,1]
+        truth_names = file_names[:,0]
         truth_names_test = truth_names[:10]
         truth_names_train = truth_names[10:]
 
@@ -127,7 +127,7 @@ class loader():
 
 
 if __name__ == "__main__":
-    loader = loader(first_run=False)
+    loader = loader(first_run=True)
     train_images, train_labels = loader.get_train_data()
     test_images, test_labels = loader.get_test_data()
     print "done"
