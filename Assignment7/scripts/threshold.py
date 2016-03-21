@@ -4,7 +4,7 @@ import os
 import numpy as np
 import skimage.io as sio
 from features import calc_dice
-from classify import SGD
+from classify import CLF
 
 class Optimizer:
 
@@ -46,7 +46,7 @@ class Optimizer:
         return self.search_space[0] + self.search_space[1]*am
 
 if __name__ == "__main__":
-    sgd = SGD()
+    sgd = CLF()
     sgd.train()
     O = Optimizer(sgd.test)
     t = O.optimize("../data")

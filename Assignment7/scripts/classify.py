@@ -15,18 +15,18 @@ from sklearn.neighbors import DistanceMetric
 import load_data
 from features import get_features_labels, calc_dice
 
-class SGD:
+class CLF:
 
     def __init__(self):
-        self.loader = load_data.loader(batch_size = 1)
-        self.clf = None
+        self.loader = load_data.loader(batch_size = 1, clf = linear_model.SGDClassifier())
+        self.clf = clf
         self.patching = patcher.ImPatch()
 
     def train(self):
         print "Training SGD classifier"
         print "Part done:"
         loader = self.loader
-        clf = linear_model.SGDClassifier()
+        clf = self.clf
         patching = self.patching
         while not loader.reset:
             data, truth = loader.load_batch()
@@ -35,7 +35,6 @@ class SGD:
             print loader.batch_i/float(loader.n_batch)
 
         joblib.dump(clf, 'classifier.pkl')
-        self.clf = clf
 
     def test(self, t=0.5):
         #print "Testing SGD classifier"
@@ -76,6 +75,6 @@ class SGD:
         return prediction
 
 if __name__ == "__main__":
-    sgd = SGD()
+    sgd = CLF(clf = linear_model.SGDClassifier())
     #sgd.train()
     sgd.test()
