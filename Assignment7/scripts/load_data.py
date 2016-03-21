@@ -16,9 +16,11 @@ class loader():
         self.file_path = file_path
         file_names = os.listdir(file_path)
         file_names = [nm for nm in os.listdir(file_path) if nm[-4:]==".png"]
-        self.file_names = np.array(file_names).reshape((len(file_names)/4,4))
-        self.truth_names = self.file_names[:,1]
-        self.file_names = self.file_names[:,1:]
+        self.truth_names = np.array([nm for nm in file_names if nm[-6:]=="an.png"])
+        file_names = np.array([nm for nm in file_names if nm[-6:]!="an.png"])
+        self.file_names = np.array(file_names).reshape((len(file_names)/3,3))
+        #self.truth_names = self.file_names[:,1]
+        #self.file_names = self.file_names[:,1:]
         self.batch_size = batch_size
         self.batch_i = 0
         self.n_batch = len(self.truth_names)/batch_size

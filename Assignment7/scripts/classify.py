@@ -28,7 +28,7 @@ class SGD:
         loader = self.loader
         clf = linear_model.SGDClassifier()
         patching = self.patching
-        while not loader.reset:
+        while loader.batch_i <= 1:# not testloader.reset:
             data, truth = loader.load_batch()
             features, labels = get_features_labels(data, truth, patching)
             clf.partial_fit(features, labels, [0,1])
@@ -37,7 +37,7 @@ class SGD:
         joblib.dump(clf, 'classifier.pkl')
         self.clf = clf
 
-    def test(self, t=0.5):
+    def test(self):
         #print "Testing SGD classifier"
         loader = self.loader
         if self.clf is None:
@@ -50,7 +50,7 @@ class SGD:
         predictions = np.zeros((testloader.n_batch, testloader.batch_size * patching.nmaxpatches))
         labels = np.zeros((testloader.n_batch, testloader.batch_size * patching.nmaxpatches))
         i = 0
-        while loader.batch_i <= 1:# not testloader.reset:
+        while loader.batch_i <= 3:# not testloader.reset:
             data, truth = loader.load_batch()
             feature, label = get_features_labels(data, truth, patching)
             prediction = clf.decision_function(feature)
@@ -64,7 +64,7 @@ class SGD:
             predictions = predictions >= t
             accuracy[i] = calc_dice(predictions, labels)
             print "t={}, Mean error(dice): ".format(t) + str(accuracy[i])
-        return np.mean(accuracy)
+        return np.argmin(accuracy), np.min(accuracy)
 
     def classify(self, image):
         """ Gives confidence score for given image

@@ -35,6 +35,7 @@ def get_features_labels(images, truth=None, patching=patcher.ImPatch()):
             else:
                 labels.append(truth[x][y])
         labels = reorder(labels, shuffled)
+        labels = [l!=0 for l in labels]
         return features, labels
     
     return features
@@ -62,35 +63,35 @@ def reorder(array, order):
             
             
 def dist_to_border(patches, coords, image_shape):
-    result = []
     x_max = image_shape[0]
     y_max = image_shape[1]
-    
+    result = np.zeros((patches.shape[0],patches.shape[1]+1))
+
     for i,patch in enumerate(patches):
-        x = patch.append(coords[i][0])
-        y = patch.append(coords[i][1])
+        x = coords[i][0]
+        y = coords[i][1]
         
-        feature = min(x, x_max-x, y, y_max-y)
-        patch_with_feature = patch.append(feature)
-        result.append(patch_with_feature)
-        
-    return np.asarray(result)
+        feature = min(coords[i][0], x_max-x, y, y_max-y)
+        result[i,:patches.shape[1]] = patch
+        result[i, patches.shape[1]:] = feature
+
+    return result
     
     
 def dist_to_center(patches, coords, image_shape):
-    result = []
     x_center = image_shape[0]/2
     y_center = image_shape[1]/2
+    result = np.zeros((patches.shape[0],patches.shape[1]+1))
     
     for i,patch in enumerate(patches):
-        x = patch.append(coords[i][0])
-        y = patch.append(coords[i][1])
+        x = coords[i][0]
+        y = coords[i][1]
         
         feature = math.hypot(x-x_center, y-y_center)
-        patch_with_feature = patch.append(feature)
-        result.append(patch_with_feature)
+        result[i,:patches.shape[1]] = patch
+        result[i, patches.shape[1]:] = feature
         
-    return np.asarray(result)    
+    return result
 
 
 

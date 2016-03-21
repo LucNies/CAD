@@ -36,14 +36,9 @@ class Optimizer:
         start, stop, step = self.search_space
 
         #imgnames = [os.path.join(dir,nm) for nm in os.listdir(dir) if nm[-6:]=="fl.png"]
-        ps = []
-        for t in np.arange(start, stop, step):
-            print "Processing threshold {}/{}".format(start+t*step,stop)
-            p = self.test(t)
-            ps.append(p)
-        am = np.argmin(ps)
-        print "Lowest error: " + str(np.sqrt(ps[am]))
-        return self.search_space[0] + self.search_space[1]*am
+
+        t, p = self.test()
+        print "Lowest error: {}@t={}".format(p,t)
 
 if __name__ == "__main__":
     sgd = SGD()
@@ -52,4 +47,4 @@ if __name__ == "__main__":
     t = O.optimize("../data")
     sio.imshow(O.loadimg("../data/1230931003_fl.png")>t)
     truth = sio.imread("../data/1230931003_an.png")
-    print np.sum(truth) / np.prod(np.shape(truth)) / 255.
+    #print np.sum(truth) / np.prod(np.shape(truth)) / 255.
