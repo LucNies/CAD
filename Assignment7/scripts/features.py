@@ -5,10 +5,6 @@ Created on Fri Mar 18 15:14:52 2016
 @author: Luc
 """
 from __future__ import division
-import load_data
-import patcher
-import matplotlib.pyplot as plt
-import numpy as np
 from random import shuffle
 from sklearn import linear_model
 from scipy import misc
@@ -17,34 +13,42 @@ from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
 
 
-loader = load_data.loader(first_run = False)
+import numpy as np
+import patcher
+import math
 
 
-"""
-Only pass one image at a time
-"""
-def get_patch_features(images, truth, patching):
+def get_features_labels(images, truth=None, patching=patcher.ImPatch()):
+
     features = []
     labels = []
     
 
     patches, coords = patching.patch(images)
-    features = patches
-    for (x,y) in coords:
-        labels.append(truth[x][y])
-        
+
     
-    shuffled = np.arange(len(labels))
+    patches_border_dist = dist_to_border(patches, coords, images[0].shape)
+    
+    patches_center_dist = dist_to_center(patches_border_dist, coords, images[0].shape)
+    
+    features = patches_center_dist#aanpassen als we vaker willen
+    
+    shuffled = np.arange(len(features))
     shuffle(shuffled)
     features = reorder(features, shuffled)
-    labels = reorder(labels, shuffled)    
+
+    if truth is not None:
+        for (x,y) in coords:
+            if(len(truth.shape)==3):
+                labels.append(truth[0][x][y])
+            else:
+                labels.append(truth[x][y])
+        labels = reorder(labels, shuffled)
+        labels = [l!=0 for l in labels]
+        return features, labels
     
-    return features, labels
+    return features
 
-def remove_black(features, labels):
-
-
-    print "none"
 
 def train():
     clf = linear_model.SGDClassifier()
@@ -70,32 +74,59 @@ def test():
         
     #save_result_as_image(predictions, labels)
 
-def save_result_as_image(predictions, labels, file_path = '../images/'):
-    for i, label in enumerate(labels):
-        misc.imsave(str(i) + 'lable.png', label)
-        misc.imsave(str(i) + 'prediction.png', predictions[i])
+
+def remove_threshold(patches, labels, coords, t = 1):
+    toRemove = []
+    for i,patch in enumerate(patches):
+        if patch[0] < t: #find the correct indices of the middle pixel of al three channels
+            toRemove.append(i)
     
-    
+    return np.delete(patches, toRemove), np.delete(labels, toRemove), np.delete(labels, toRemove)
+
+
 def calc_dice(predictions, labels):
     NNEQ = np.sum(predictions != labels)
     NNT = np.sum(predictions == labels)
     NNZ = np.sum((predictions + labels) != 0)
-    return NNEQ/(NNT+NNZ)
-        
-    
+    return NNEQ/float(NNT+NNZ)
 
     
 def reorder(array, order):
     result = [array[i] for i in order]
     return result
             
-def create_location_feature():
-        loader = load_data.loader()
-        data, truth = loader.load_batch()
-        locations = np.zeros()
- 
+            
+def dist_to_border(patches, coords, image_shape):
+    x_max = image_shape[0]
+    y_max = image_shape[1]
+    result = np.zeros((patches.shape[0],patches.shape[1]+1))
+
+    for i,patch in enumerate(patches):
+        x = coords[i][0]
+        y = coords[i][1]
+        
+        feature = min(coords[i][0], x_max-x, y, y_max-y)
+        result[i,:patches.shape[1]] = patch
+        result[i, patches.shape[1]:] = feature
+
+    return result
+    
+    
+def dist_to_center(patches, coords, image_shape):
+    x_center = image_shape[0]/2
+    y_center = image_shape[1]/2
+    result = np.zeros((patches.shape[0],patches.shape[1]+1))
+    
+    for i,patch in enumerate(patches):
+        x = coords[i][0]
+        y = coords[i][1]
+        
+        feature = math.hypot(x-x_center, y-y_center)
+        result[i,:patches.shape[1]] = patch
+        result[i, patches.shape[1]:] = feature
+        
+    return result
 
 
 
-#train()
-test()
+
