@@ -38,8 +38,10 @@ class ImPatch():
         """
            Patches an image (samples sub-images)
         """
-            
-        patches = np.zeros((self.n,self.patch_size))
+        if(len(image.shape)==3):
+            patches = np.zeros((self.n,self.patch_size))
+        else:
+            patches = np.zeros((self.n,self.patch_size/3))
         
         # Shuffle list of coords
         #random.shuffle(coords)
@@ -50,9 +52,9 @@ class ImPatch():
                 break
             
             x, y = coord
-                    
+            image = np.reshape(image, (-1,image.shape[-2], image.shape[-1]))
             patch = image[:,x:(x+self.patch_width),y:(y+self.patch_width)]
-            np_patch = np.reshape(patch, (self.patch_size))
+            np_patch = np.reshape(patch, -1)
             patches[i] = np_patch
         
         
