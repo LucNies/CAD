@@ -4,7 +4,7 @@ import os
 import numpy as np
 import skimage.io as sio
 from features import calc_dice
-from classify import SGD
+from classify import CLF
 
 class Optimizer:
 
@@ -41,7 +41,7 @@ class Optimizer:
         print "Lowest error: {}@t={}".format(p,t)
 
 if __name__ == "__main__":
-    sgd = SGD()
+    sgd = CLF()
     sgd.train()
     O = Optimizer(sgd.test)
     t = O.optimize("../data")
