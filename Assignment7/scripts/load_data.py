@@ -16,7 +16,7 @@ from scipy import misc
 
 class loader():
 
-    def __init__(self, file_path='../data/', batch_size = 20):
+    def __init__(self, file_path='../data/', batch_size = 1):
         self.file_path = file_path
         file_names = os.listdir(file_path)
         file_names = [nm for nm in os.listdir(file_path) if nm[-4:]==".png"]

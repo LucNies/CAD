@@ -5,18 +5,21 @@ Created on Fri Mar 18 14:00:14 2016
 @author: Luc
 """
 
-
+from __future__ import division
 import numpy as np
 import os
 from scipy import misc
 
+import features
 
 
 
 
 class loader():
 
-    def __init__(self, file_path='../data/', batch_size = 20, test_size = 10, first_run = True):
+    def __init__(self, file_path='../data/', test_size = 10, first_run = True):
+        self.train_i = 0
+        self.test_i = 0
         if first_run:
             self.test_size = test_size
             self.train_size = 50 - self.test_size
@@ -32,6 +35,7 @@ class loader():
 
 
     def first_time(self, file_path):
+        print "loading data first time"
         file_names = os.listdir(file_path)  
         file_names = np.array(file_names).reshape((len(file_names)/4,4))
         image = misc.imread(file_path+file_names[0][0])
@@ -51,6 +55,11 @@ class loader():
         np.save('train_labels.npy', self.load_labels(file_path, truth_names_train))
         np.save('test_images.npy', self.load_images(file_path, file_names_test))
         np.save('train_images.npy', self.load_images(file_path, file_names_train))
+        
+        print "saved images as numpy arrays"
+        
+        self.save_features()
+        print "Saved features and labels to file"
 
     def load_labels(self, path, file_names):
         data = np.zeros((len(file_names),) + self.im_shape)
@@ -71,13 +80,49 @@ class loader():
     def get_train_data(self):
         images = np.load('train_images.npy')
         labels = np.load('train_labels.npy')
+        print "loaded train data"
         return images, labels
     
     def get_test_data(self):
         images = np.load('test_images.npy')
         labels = np.load('test_labels.npy')
+        print "loader test data"
         return images, labels
 
+    def save_features(self, file_path = '../features/'):
+        
+        train_images, train_labels = self.get_train_data()
+        test_images, test_labels = self.get_test_data()
+        
+        print "Patching and saving train images"
+        for i, image in enumerate(train_images):
+            label = train_labels[i]
+            feature_vectors, labels = features.get_features_labels(image, label)
+            np.save(file_path + "train_features_n" + str(i) + '.npy', feature_vectors)
+            np.save(file_path + "train_labels_n" + str(i) + '.npy', labels)
+            print i/len(train_images)
+        
+        print "Patching and saving test images"
+        for i, image in enumerate(test_images):
+            label = test_labels[i]
+            feature_vectors, labels = features.get_features_labels(image, label)
+            np.save(file_path + "test_features_n" + str(i) + '.npy', feature_vectors)
+            np.save(file_path + "test_labels_n" + str(i) + '.npy', labels)
+            print i/len(test_images)
+        
+    def get_next_training_sample(self, file_path = '../features/'):
+         features = np.load(file_path + 'train_features_n' + str(self.train_i) + '.npy')
+         labels = np.load(file_path + 'train_labels_n' + str(self.train_i) + '.npy')
+         self.train_i =self.train_i+1
+         return features, labels
+        
+    def get_next_test_sample(self, file_path = '../features/'):
+         features = np.load(file_path + 'test_features_n' + str(self.test_i) + '.npy')
+         labels = np.load(file_path + 'test_labels_n' + str(self.test_i) + '.npy')
+         self.test_i = self.test_i+1
+         return features, labels
+
+        
         
 
 

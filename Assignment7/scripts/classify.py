@@ -4,7 +4,7 @@ Created on Fri Mar 18 15:05:57 2016
 
 @author: Luc
 """
-
+from __future__ import division
 import patcher
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,13 +12,14 @@ from sklearn import linear_model
 import pickle
 from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
-import load_data
+import load_data2 as load_data
 from features import get_features_labels, calc_dice
+import time
 
 class CLF:
 
     def __init__(self):
-        self.loader = load_data.loader(batch_size = 1)
+        self.loader = load_data.loader(first_run = False)
         self.patching = patcher.ImPatch()
 
     def train(self, clf = linear_model.SGDClassifier()):
@@ -27,32 +28,33 @@ class CLF:
         loader = self.loader
         patching = self.patching
         self.clf = clf
-        while loader.batch_i < loader.n_batch:# not testloader.reset:
-            data, truth = loader.load_batch()
-            print str(data.shape) + " n labels: " + str(truth.shape)
-            features, labels = get_features_labels(data, truth, patching)
+        t1 = time.time()
+        while loader.train_i < loader.train_size:# not testloader.reset:
+            features, labels = loader.get_next_training_sample()
             self.clf.partial_fit(features, labels, [0,1])
-            print loader.batch_i/float(loader.n_batch)
+            print loader.train_i/loader.train_size
 
-        joblib.dump(clf, 'classifier.pkl')
+        joblib.dump(self.clf, 'classifier.pkl')
+        print "Training done, time elapsed: " + str(time.time()-t1)
 
     def test(self):
         #print "Testing SGD classifier"
         loader = self.loader
         self.clf = joblib.load('classifier.pkl')
         patching = self.patching
-        testloader = load_data.loader(batch_size = 1)
         accuracy = 0
-        predictions = np.zeros((testloader.n_batch, testloader.batch_size * patching.nmaxpatches))
-        labels = np.zeros((testloader.n_batch, testloader.batch_size * patching.nmaxpatches))
-        i = 0
-        while loader.batch_i <= 3:# not testloader.reset:
-            data, truth = loader.load_batch()
-            feature, label = get_features_labels(data, truth, patching)
-            prediction = self.clf.decision_function(feature)
-            predictions[i] = prediction
-            labels[i] = label
-            i+=1
+        predictions = np.zeros((loader.test_size, patching.nmaxpatches))
+        labels = np.zeros((loader.test_size, patching.nmaxpatches))
+ 
+        print "Start Testing..."
+        print "Test size = " + str(loader.test_size)
+        while loader.test_i < loader.test_size:# not testloader.reset:
+            feature_vector, label= loader.get_next_test_sample()
+            prediction = self.clf.decision_function(feature_vector)
+            predictions[loader.test_i-1] = prediction
+            labels[loader.test_i-1] = label
+            print str(loader.test_i/loader.test_size)
+            
             #features = np.reshape(features, (-1, np.shape(features)[-1]))
             #print calc_dice(prediction, labels)
         accuracy = np.zeros((10,))

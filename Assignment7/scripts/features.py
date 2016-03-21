@@ -8,7 +8,7 @@ from __future__ import division
 from random import shuffle
 from sklearn import linear_model
 from scipy import misc
-import pickle
+
 from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
 
@@ -18,38 +18,39 @@ import patcher
 import math
 
 
-def get_features_labels(images, truth=None, patching=patcher.ImPatch()):
+def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
 
     features = []
     labels = []
     
 
-    patches, coords = patching.patch(images)
-
+    patches, coords = patching.patch(image)
     
-    patches_border_dist = dist_to_border(patches, coords, images[0].shape)
     
-    patches_center_dist = dist_to_center(patches_border_dist, coords, images[0].shape)
+    #patches_border_dist = dist_to_border(patches, coords, image.shape)
     
-    features = patches_center_dist#aanpassen als we vaker willen
+    #patches_center_dist = dist_to_center(patches_border_dist, coords, image.shape)
     
-    shuffled = np.arange(len(features))
+    #features = patches_center_dist#aanpassen als we vaker willen
+    
+    shuffled = np.arange(len(patches))
     shuffle(shuffled)
-    features = reorder(features, shuffled)
+    features = reorder(patches, shuffled)
 
-    if truth is not None:
-        for (x,y) in coords:
-            if(len(truth.shape)==3):
-                labels.append(truth[0][x][y])
-            else:
-                labels.append(truth[x][y])
-        labels = reorder(labels, shuffled)
-        labels = [l!=0 for l in labels]
-        return features, labels
+
+    for (x,y) in coords:
+        if(len(truth.shape)==3):
+            labels.append(truth[0][x][y])
+        else:
+            labels.append(truth[x][y])
+    labels = reorder(labels, shuffled)
+    labels = [l!=0 for l in labels]# nog ff naar kijken
     
-    return features
+    return features, labels
+    
 
-
+"""
+Do not use
 def train():
     clf = linear_model.SGDClassifier()
     patching = patcher.ImPatch()
@@ -60,7 +61,10 @@ def train():
         print i/len(train_images)
     
     joblib.dump(clf, 'classifier.pkl')
-    
+ 
+
+Do not use
+   
 def test():
     clf = joblib.load('classifier.pkl')  
     patching = patcher.ImPatch()
@@ -74,7 +78,7 @@ def test():
         
     #save_result_as_image(predictions, labels)
 
-
+"""
 def remove_threshold(patches, labels, coords, t = 1):
     toRemove = []
     for i,patch in enumerate(patches):
@@ -126,7 +130,6 @@ def dist_to_center(patches, coords, image_shape):
         result[i, patches.shape[1]:] = feature
         
     return result
-
 
 
 
