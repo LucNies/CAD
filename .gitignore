@@ -52,6 +52,7 @@ Temporary Items
 *.pkl
 *.npy
 *.pyc
+*.npy
 .idea
 
 *.tiff
