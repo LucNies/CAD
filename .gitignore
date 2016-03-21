@@ -50,3 +50,7 @@ Temporary Items
 
 # python compiled
 *.pyc
+*.pyc
+*.pyc
+*.pkl
+*.npy
