@@ -30,11 +30,24 @@ def get_features_labels(images, truth=None, patching=patcher.ImPatch()):
 
     if truth is not None:
         for (x,y) in coords:
-            labels.append(truth[0][x][y])
+            if(len(truth.shape)==3):
+                labels.append(truth[0][x][y])
+            else:
+                labels.append(truth[x][y])
         labels = reorder(labels, shuffled)
         return features, labels
     
     return features
+
+
+def remove_threshold(patches, labels, coords, t = 1):
+    toRemove = []
+    for i,patch in enumerate(patches):
+        if patch[0] < t: #find the correct indices of the middle pixel of al three channels
+            toRemove.append(i)
+    
+    return np.delete(patches, toRemove), np.delete(labels, toRemove), np.delete(labels, toRemove)
+
 
 def calc_dice(predictions, labels):
     NNEQ = np.sum(predictions != labels)
