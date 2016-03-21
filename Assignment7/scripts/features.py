@@ -25,7 +25,10 @@ def get_features_labels(images, truth=None, patching=patcher.ImPatch()):
 
     if truth is not None:
         for (x,y) in coords:
-            labels.append(truth[0][x][y])
+            if(len(truth.shape)==3):
+                labels.append(truth[0][x][y])
+            else:
+                labels.append(truth[x][y])
         labels = reorder(labels, shuffled)
         return features, labels
     

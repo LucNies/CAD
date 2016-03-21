@@ -42,7 +42,7 @@ class Optimizer:
             p = self.test(t)
             ps.append(p)
         am = np.argmin(ps)
-        print "Lowest error: " + np.sqrt(ps[am])
+        print "Lowest error: " + str(np.sqrt(ps[am]))
         return self.search_space[0] + self.search_space[1]*am
 
 if __name__ == "__main__":

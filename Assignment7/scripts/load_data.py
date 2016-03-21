@@ -11,8 +11,8 @@ import os
 from scipy import misc
 
 class loader():
-    
-    def __init__(self, file_path='../data/', batch_size = 20):    
+
+    def __init__(self, file_path='../data/', batch_size = 20):
         self.file_path = file_path
         file_names = os.listdir(file_path)
         file_names = [nm for nm in os.listdir(file_path) if nm[-4:]==".png"]
@@ -24,11 +24,13 @@ class loader():
         self.n_batch = len(self.truth_names)/batch_size
         image = misc.imread(os.path.join(file_path,self.file_names[0][0]))
         self.im_shape = image.shape
+        self.reset = False
 
     def load_batch(self):
+        self.reset = False
         if (self.batch_i+1)*self.batch_size > len(self.truth_names):
             batch_size = len(self.truth_names) - self.batch_i*self.batch_size
-            reset = True
+            self.reset = True
         else:
             batch_size = self.batch_size
             reset = False
@@ -39,7 +41,7 @@ class loader():
             data[3*i+1] = misc.imread(self.file_path+self.file_names [self.batch_i*batch_size + i,1])
             data[3*i+2] = misc.imread(self.file_path+self.file_names [self.batch_i*batch_size + i,2])
             truth[i]    = misc.imread(self.file_path+self.truth_names[self.batch_i*batch_size + i])
-        self.batch_i = 0 if reset else self.batch_i+1
+        self.batch_i = 0 if self.reset else self.batch_i+1
         return data, truth
         
 
