@@ -13,7 +13,8 @@ import pickle
 from sklearn.externals import joblib
 from sklearn.neighbors import DistanceMetric
 import load_data2 as load_data
-from features import get_features_labels, calc_dice
+from features import get_features_labels
+from features import calc_dice
 import time
 
 class CLF:
@@ -50,7 +51,7 @@ class CLF:
         print "Test size = " + str(loader.test_size)
         while loader.test_i < loader.test_size:# not testloader.reset:
             feature_vector, label= loader.get_next_test_sample()
-            prediction = self.clf.decision_function(feature_vector)
+            prediction = self.clf.predict(feature_vector)#self.clf.decision_function(feature_vector)
             predictions[loader.test_i-1] = prediction
             labels[loader.test_i-1] = label
             print str(loader.test_i/loader.test_size)
@@ -61,6 +62,7 @@ class CLF:
         for i,t in enumerate(np.arange(0,1,0.1)):
             predictions = predictions >= t
             accuracy[i] = calc_dice(predictions, labels)
+            print "Accurracy: "+str((predictions == labels).sum()/labels.size)
             print "t={}, Mean error(dice): ".format(t) + str(accuracy[i])
         return np.argmin(accuracy), np.min(accuracy)
 
@@ -72,6 +74,10 @@ class CLF:
         features, labels = get_features_labels(image, patching=self.patching)
         prediction = self.clf.decision_function(features)
         return prediction
+    
+    def save_prediction_image(self, classification, label):
+        print "lolz"
+        
 
 if __name__ == "__main__":
     sgd = CLF()

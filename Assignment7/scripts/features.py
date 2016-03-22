@@ -43,7 +43,7 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
         else:
             labels.append(truth[x][y])
     labels = reorder(labels, shuffled)
-    #labels = [l!=0 for l in labels]# nog ff naar kijken
+    labels = [l>240 for l in labels] #Not really a binary image: contains values {0,1,244,255}
     
     return features, labels
     
@@ -93,6 +93,21 @@ def calc_dice(predictions, labels):
     NNZ = np.sum((predictions + labels) != 0)
     return NNEQ/float(NNT+NNZ)
 
+
+"""
+Based on wikipedia: https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
+"""
+def calc_dice2(predictions, labels):
+    A = predictions.sum()
+    B = labels.sum()
+    temp = predictions == labels
+    for i,shared in enumerate(temp):
+        for j, s in enumerate(shared):
+            if s and (labels[i][j] == 1):
+                C=+1
+    
+    return 2*C/(A+B)
+            
     
 def reorder(array, order):
     result = [array[i] for i in order]
