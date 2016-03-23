@@ -33,7 +33,7 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
     #features = patches_center_dist#aanpassen als we vaker willen
     
 
-    patches, coords = remove_threshold(patches, coords)  
+    #patches, coords = remove_threshold(patches_center_dist, coords)  
 
     for (x,y) in coords:
         labels.append(truth[x][y]>240)#Not really a binary image: contains values {0,1,244,255}

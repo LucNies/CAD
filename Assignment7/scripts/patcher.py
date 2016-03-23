@@ -4,7 +4,7 @@ import numpy as np
 
 
 class ImPatch():
-    def __init__(self, image_shape = (512, 384), n = 0, patch_width = 5, stride = 1):
+    def __init__(self, image_shape = (512, 384), n = 0, patch_width = 7, stride = 1):
         self.image_shape = image_shape
         self.n = n
         self.patch_width = patch_width
