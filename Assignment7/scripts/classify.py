@@ -87,5 +87,5 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    sgd.train(clf = linear_model.SGDClassifier())
+    #sgd.train(clf = linear_model.SGDClassifier())
     sgd.test()
