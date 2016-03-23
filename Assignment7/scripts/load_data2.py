@@ -170,7 +170,7 @@ class loader():
 
 
 if __name__ == "__main__":
-    loader = loader(first_run=False)
+    loader = loader(first_run=True)
     #train_images, train_labels = loader.get_train_data()
     #test_images, test_labels = loader.get_test_data()
     print "done"
