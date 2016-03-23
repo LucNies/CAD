@@ -98,9 +98,9 @@ def test():
 
 def calc_dice(predictions, labels):
     NNEQ = np.sum(predictions != labels)
-    NNT = np.sum(predictions == labels)
+    NTT = np.sum(predictions * labels)
     NNZ = np.sum((predictions + labels) != 0)
-    return NNEQ/float(NNT+NNZ)
+    return NNEQ/float(NTT+NNZ)
 
             
     

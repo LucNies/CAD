@@ -93,6 +93,9 @@ class loader():
         
         train_images, train_labels = self.get_train_data()
         test_images, test_labels = self.get_test_data()
+
+        if not os.path.exists(file_path):
+            os.makedirs(file_path)
         
         print "Patching and saving train images"
         for i, image in enumerate(train_images):

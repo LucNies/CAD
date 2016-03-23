@@ -11,9 +11,6 @@ import os
 from scipy import misc
 
 
-
-
-
 class loader():
 
     def __init__(self, file_path='../data/', batch_size = 1):

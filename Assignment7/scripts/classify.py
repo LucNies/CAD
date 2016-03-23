@@ -57,6 +57,7 @@ class CLF:
             labels.append(label)
             print "Accuracy: " + str((prediction == label).sum()/label.size)
             print "True positives:" +str((prediction+label == 2).sum()/label.sum())
+            print "Dice: {}".format(calc_dice(prediction,label))
             print str(loader.test_i/loader.test_size)
             
             #features = np.reshape(features, (-1, np.shape(features)[-1]))
@@ -86,5 +87,5 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    #sgd.train(clf = linear_model.SGDClassifier())
+    sgd.train(clf = linear_model.SGDClassifier())
     sgd.test()
