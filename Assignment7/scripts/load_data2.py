@@ -102,7 +102,7 @@ class loader():
         for i, image in enumerate(train_images):
             label = train_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
-            features, labels = self.subsample(features, labels)
+            feature_vectors, labels = self.subsample(feature_vectors, labels)
             np.save(file_path + "train_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "train_labels_n" + str(i) + '.npy', labels)
             print i/len(train_images)
@@ -111,22 +111,22 @@ class loader():
         for i, image in enumerate(test_images):
             label = test_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
-            features, labels = self.subsample(features, labels)
+            feature_vectors, labels = self.subsample(feature_vectors, labels)
             np.save(file_path + "test_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "test_labels_n" + str(i) + '.npy', labels)
             print i/len(test_images)
         
     def get_next_training_sample(self, file_path = '../features/'):
-         features = np.load(file_path + 'train_features_n' + str(self.train_i) + '.npy')
+         feature_vectors = np.load(file_path + 'train_features_n' + str(self.train_i) + '.npy')
          labels = np.load(file_path + 'train_labels_n' + str(self.train_i) + '.npy')
          self.train_i =self.train_i+1
-         return features, labels
+         return feature_vectors, labels
         
     def get_next_test_sample(self, file_path = '../features/'):
-         features = np.load(file_path + 'test_features_n' + str(self.test_i) + '.npy')
+         feature_vectors = np.load(file_path + 'test_features_n' + str(self.test_i) + '.npy')
          labels = np.load(file_path + 'test_labels_n' + str(self.test_i) + '.npy')
          self.test_i = self.test_i+1
-         return features, labels
+         return feature_vectors, labels
 
     def subsample(self, objects, labels, ratio=1):
         """Samples objects and corresponding labels such that sum(labels==0)=sum(labels==1)
@@ -134,6 +134,10 @@ class loader():
         :param labels: Binary labels to weigh the sampling, are also sampled.
         :return: Subsample of objects and corresponding labels
         """
+
+        objects = np.array(objects)
+        labels = np.array(labels)
+
         n1 = np.sum(labels)
         n0 = np.size(labels,0) - n1
         r = n0/n1
@@ -156,6 +160,6 @@ class loader():
 
 if __name__ == "__main__":
     loader = loader(first_run=True)
-    train_images, train_labels = loader.get_train_data()
-    test_images, test_labels = loader.get_test_data()
+    #train_images, train_labels = loader.get_train_data()
+    #test_images, test_labels = loader.get_test_data()
     print "done"
