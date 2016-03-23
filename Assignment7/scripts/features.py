@@ -53,14 +53,14 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
 """
 Removes pixels that are below the threshold from the feature vector
 """
-def remove_threshold(features, coords, t = 1):
+def remove_threshold(features, coords, t = 100):
     to_remove = []
     for i, feature in enumerate(features):
-         if feature[len(feature)/3/2]<=0 and feature[2*(len(feature)/3/2)]<=0 and feature[3*(len(feature)/3/2)]<=0 :
+         if feature[len(feature)/6]<=t and feature[(len(feature)/2)]<=t and feature[5*(len(feature)/6)]<=t :
              to_remove.append(i)
             
-    np.delete(features, to_remove)
-    np.delete(coords, to_remove)
+    features = np.delete(features, to_remove, axis = 0)
+    coords = np.delete(coords, to_remove, axis = 0)
     return features, coords
              
     
