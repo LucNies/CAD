@@ -130,14 +130,26 @@ class loader():
     def get_all_training_samples(self, file_path = '../features/'):
         i = 0
         feature_vectors = np.load(file_path + 'train_features_n' + str(i) + '.npy')
-        labels = np.load(file_path + 'test_labels_n' + str(i) + '.npy')
+        labels = np.load(file_path + 'train_labels_n' + str(i) + '.npy')
         i+=1
         while i < self.train_size:
             feature_vectors = np.append(feature_vectors, np.load(file_path + 'train_features_n' + str(i) + '.npy'), axis=0)
-            labels = np.append(labels, np.load(file_path + 'test_labels_n' + str(i) + '.npy'), axis = 0)
+            labels = np.append(labels, np.load(file_path + 'train_labels_n' + str(i) + '.npy'))
             i+=1
         
-        return featrue_vectors, labels
+        return feature_vectors, labels
+    
+    def get_all_test_samples(self, file_path = '../features/'):
+        i = 0
+        feature_vectors = np.load(file_path + 'test_features_n' + str(i) + '.npy')
+        labels = np.load(file_path + 'test_labels_n' + str(i) + '.npy')
+        i+=1
+        while i < self.train_size:
+            feature_vectors = np.append(feature_vectors, np.load(file_path + 'test_features_n' + str(i) + '.npy'), axis=0)
+            labels = np.append(labels, np.load(file_path + 'test_labels_n' + str(i) + '.npy'))
+            i+=1
+        
+        return feature_vectors, labels
 
     def subsample(self, objects, labels, ratio=1):
         """Samples objects and corresponding labels such that sum(labels==0)=sum(labels==1)
