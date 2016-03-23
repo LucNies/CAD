@@ -96,11 +96,15 @@ def test():
 """
 
 
-def calc_dice(predictions, labels):
-    NNEQ = np.sum(predictions != labels)
-    NNT = np.sum(predictions == labels)
-    NNZ = np.sum((predictions + labels) != 0)
-    return NNEQ/float(NNT+NNZ)
+def calc_dice(predictions, labels, similarity=True):
+    NTT = np.sum(predictions * labels)
+    if similarity:
+        N = np.sum(predictions) + np.sum(labels)
+        return 2*NTT/N
+    else:
+        NNEQ = np.sum(predictions != labels)
+        NNZ = np.sum((predictions + labels) != 0)
+        return NNEQ/float(NTT+NNZ) # Dissimilarity
 
             
     

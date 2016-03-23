@@ -50,13 +50,14 @@ class CLF:
  
         print "Start Testing..."
         print "Test size = " + str(loader.test_size)
-        while loader.test_i < loader.test_size:# not testloader.reset:
+        while loader.test_i < loader.test_size:
             feature_vector, label= loader.get_next_test_sample()
             prediction = self.clf.predict(feature_vector)#self.clf.decision_function(feature_vector)
             predictions.append(prediction)
             labels.append(label)
             print "Accuracy: " + str((prediction == label).sum()/label.size)
             print "True positives:" +str((prediction+label == 2).sum()/label.sum())
+            print "Dice: {}".format(calc_dice(prediction,label))
             print str(loader.test_i/loader.test_size)
             
             #features = np.reshape(features, (-1, np.shape(features)[-1]))
