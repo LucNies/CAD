@@ -21,7 +21,7 @@ from plot_images import plot
 class CLF:
 
     def __init__(self):
-        self.loader = load_data.loader(first_run = True)
+        self.loader = load_data.loader(first_run = False)
         self.patching = patcher.ImPatch()
 
     def train(self, clf = linear_model.SGDClassifier(loss='modified_huber')):
@@ -59,9 +59,6 @@ class CLF:
         accuracy = np.zeros((10,))
         labels = np.array([l for ls in labels for l in ls])
         probabilities = np.array([p[1] for ps in probabilities for p in ps])
-
-        plt.hist(probabilities)
-        plt.show()
 
         for i,t in enumerate(np.arange(0,1,0.1)):
             # p[1] grabs P(class=1) the rest flattens and makes np-array for calc_dice
