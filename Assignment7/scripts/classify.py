@@ -24,7 +24,7 @@ class CLF:
         self.loader = load_data.loader(first_run = False)
         self.patching = patcher.ImPatch()
 
-    def train(self, clf = linear_model.SGDClassifier()):
+    def train(self, clf = linear_model.SGDClassifier(loss='modified_huber')):
         print "Training SGD classifier"
         print "Part done:"
         loader = self.loader
@@ -45,33 +45,31 @@ class CLF:
         self.clf = joblib.load('classifier.pkl')
         patching = self.patching
         accuracy = 0
-        predictions = []
+        probabilities = []
         labels = []
  
         print "Start Testing..."
         print "Test size = " + str(loader.test_size)
         while loader.test_i < loader.test_size:
             feature_vector, label= loader.get_next_test_sample()
-            prediction = self.clf.predict(feature_vector)#self.clf.decision_function(feature_vector)
-            predictions.append(prediction)
+            prediction = self.clf.predict_proba(feature_vector)
+            probabilities.append(prediction)
             labels.append(label)
-            print "Accuracy: " + str((prediction == label).sum()/label.size)
-            print "True positives:" +str((prediction+label == 2).sum()/label.sum())
-            print "Dice: {}".format(calc_dice(prediction,label))
-            print str(loader.test_i/loader.test_size)
-            
-            #features = np.reshape(features, (-1, np.shape(features)[-1]))
-            #print calc_dice(prediction, labels)
-        
-        """
+
         accuracy = np.zeros((10,))
+        labels = np.array([l for ls in labels for l in ls])
+        probabilities = np.array([p[1] for ps in probabilities for p in ps])
+
+        plt.hist(probabilities)
+        plt.show()
+
         for i,t in enumerate(np.arange(0,1,0.1)):
-            predictions = predictions >= t
+            # p[1] grabs P(class=1) the rest flattens and makes np-array for calc_dice
+            predictions = probabilities >= t
             accuracy[i] = calc_dice(predictions, labels)
+            print "t={}, dice: {}".format(t, str(accuracy[i]))
             print "Accurracy: "+str((predictions == labels).sum()/labels.size)
-            print "t={}, Mean error(dice): ".format(t) + str(accuracy[i])
         return np.argmin(accuracy), np.min(accuracy)
-        """
 
     def classify(self, image):
         """ Gives confidence score for given image
@@ -87,5 +85,5 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    #sgd.train(clf = linear_model.SGDClassifier())
+    sgd.train(clf = linear_model.SGDClassifier(loss='modified_huber'))
     sgd.test()
