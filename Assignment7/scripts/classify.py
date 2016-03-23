@@ -21,7 +21,7 @@ from plot_images import plot
 class CLF:
 
     def __init__(self):
-        self.loader = load_data.loader(first_run = False)
+        self.loader = load_data.loader(first_run = True)
         self.patching = patcher.ImPatch()
 
     def train(self, clf = linear_model.SGDClassifier(loss='modified_huber')):
