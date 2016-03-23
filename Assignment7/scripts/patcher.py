@@ -59,7 +59,7 @@ class ImPatch():
             patches[i] = np_patch
         
         
-        mid_coords = [(x+2,y+2) for (x,y) in self.coords]        
+        mid_coords = [(x+(self.patch_width/2),y+(self.patch_width/2)) for (x,y) in self.coords]        
         
         return patches,mid_coords
         
