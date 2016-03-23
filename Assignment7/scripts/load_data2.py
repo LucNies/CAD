@@ -111,7 +111,7 @@ class loader():
         for i, image in enumerate(test_images):
             label = test_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
-            feature_vectors, labels = self.subsample(feature_vectors, labels)
+            #feature_vectors, labels = self.subsample(feature_vectors, labels)
             np.save(file_path + "test_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "test_labels_n" + str(i) + '.npy', labels)
             print i/len(test_images)
@@ -128,8 +128,8 @@ class loader():
          self.test_i = self.test_i+1
          return feature_vectors, labels
 
-    def subsample(self, objects, labels, ratio=1):
-        """Samples objects and corresponding labels such that sum(labels==0)=sum(labels==1)
+    def subsample(self, objects, labels, ratio=0.5):
+        """Samples objects and corresponding labels such that ratio*sum(labels==0)=sum(labels==1)
         :param objects: Objects to sample.
         :param labels: Binary labels to weigh the sampling, are also sampled.
         :return: Subsample of objects and corresponding labels
@@ -145,9 +145,9 @@ class loader():
         ind0 = np.where(1-labels)[0]
         ind1 = np.nonzero(labels)[0]
         if r > 0:
-            ind0 = np.random.choice(ind0, n1)
+            ind0 = np.random.choice(ind0, int(ratio*n1))
         else:
-            ind1 = np.random.choice(ind1, n0)
+            ind1 = np.random.choice(ind1, int(ratio*n0))
         oobj = np.vstack([objects[ind0,:], objects[ind1,:]])
         olbl = np.append(labels[ind0], labels[ind1])
         shuffled = np.arange(len(olbl))
@@ -159,7 +159,7 @@ class loader():
 
 
 if __name__ == "__main__":
-    loader = loader(first_run=False)
+    loader = loader(first_run=True)
     #train_images, train_labels = loader.get_train_data()
     #test_images, test_labels = loader.get_test_data()
     print "done"

@@ -8,43 +8,39 @@ from classify import CLF
 
 class Optimizer:
 
-    def __init__(self, test=None, search_space=None):
-        """Makes the optimiser.
-        :param test: function that takes threshold and outputs a performance value between 0 and 1
-        :param search_space: triple with start, stop and step values for range of thresholds
-        :return: Optimizer object
-        """
-        if (test is None):
-            self.test = lambda x: 0.5
-        else:
-            self.test = test
-        if (search_space is None):
-            self.search_space = (0,1,0.1)
-        else:
-            self.search_space = search_space
+    def __init__(self):
+        self.all_labels = []
+        self.all_data = []
 
-    def loadimg(self, imgnm):
-        img = sio.imread(imgnm)
-        img = exposure.equalize_hist(img)
-        img = (img * 255).astype(int)
-        return img
+    def partial_fit(self, data, labels, _):
+        n = np.sqrt(len(data[0])/3)
+        m = int(n/2)+1
+        for l,d in zip(labels, data):
+            self.all_labels.append(l)
 
-    def optimize(self, dir):
-        print "Optimizing threshold"
-        """Main function that finds the best threshold
-        """
-        start, stop, step = self.search_space
+            px = d[m*n-m]
+            self.all_data.append(px)
 
-        #imgnames = [os.path.join(dir,nm) for nm in os.listdir(dir) if nm[-6:]=="fl.png"]
+    def predict_proba(self, data):
+        start, stop, step = 0,1,0.1
 
-        t, p = self.test()
-        print "Lowest error: {}@t={}".format(p,t)
+        scores = []
+        for t in np.arange(start, stop, step):
+            scores.append(self.score(self.all_data, t))
+
+        opt_t = start + np.argmax(scores) * step
+
+        px = np.zeros((len(data),))
+        n = np.sqrt(len(data[0])/3)
+        m = int(n/2)+1
+        for i, d in enumerate(data):
+            px[i] = d[m*n-m]
+        return np.array([(1-p /255., p /255.) for p in px])
+
+    def score(self, px, t):
+        pred = np.array([p > t for p in px])
+        return calc_dice(pred, self.all_labels)
+
 
 if __name__ == "__main__":
-    sgd = CLF()
-    sgd.train()
-    O = Optimizer(sgd.test)
-    t = O.optimize("../data")
-    sio.imshow(O.loadimg("../data/1230931003_fl.png")>t)
-    truth = sio.imread("../data/1230931003_an.png")
-    #print np.sum(truth) / np.prod(np.shape(truth)) / 255.
+    pass

@@ -17,6 +17,7 @@ from features import get_features_labels
 from features import calc_dice
 import time
 from plot_images import plot
+import threshold
 
 class CLF:
 
@@ -36,13 +37,13 @@ class CLF:
             self.clf.partial_fit(features, labels, [0,1])
             print loader.train_i/loader.train_size
 
-        joblib.dump(self.clf, 'classifier.pkl')
+        #joblib.dump(self.clf, 'classifier.pkl')
         print "Training done, time elapsed: " + str(time.time()-t1)
 
     def test(self):
         #print "Testing SGD classifier"
         loader = self.loader
-        self.clf = joblib.load('classifier.pkl')
+        #self.clf = joblib.load('classifier.pkl')
         patching = self.patching
         accuracy = 0
         probabilities = []
@@ -82,7 +83,8 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    #sgd.train(clf = linear_model.SGDClassifier(loss='modified_huber'))
+    sgd.train(clf = linear_model.SGDClassifier('modified_huber'))
     sgd.test()
-    plt.imshow(np.reshape(sgd.clf.coef_[0][::3], (7,7)))
-    plt.show()
+    if hasattr(sgd.clf, 'coef_'):
+        plt.imshow(np.reshape(sgd.clf.coef_[0][::3], (7,7)))
+        plt.show()
