@@ -17,34 +17,29 @@ from features import get_features_labels
 from features import calc_dice
 import time
 from plot_images import plot
-import threshold
-from sklearn.naive_bayes import BernoulliNB
-
+from sklearn.svm import SVC
 class CLF:
 
     def __init__(self):
         self.loader = load_data.loader(first_run = True)
         self.patching = patcher.ImPatch()
 
-    def train(self, clf = linear_model.SGDClassifier(loss='modified_huber')):
-        print "Training SGD classifier"
+    def train(self, clf =SVC(kernel='linear', probability=True, verbose=True)):
+        print "Training SVC classifier"
         print "Part done:"
         loader = self.loader
         patching = self.patching
         self.clf = clf
         t1 = time.time()
-        while loader.train_i < loader.train_size:# not testloader.reset:
-            features, labels = loader.get_next_training_sample()
-            self.clf.partial_fit(features, labels, [0,1])
-            print loader.train_i/loader.train_size
-
-        #joblib.dump(self.clf, 'classifier.pkl')
+        features, labels = loader.get_all_training_samples()
+        clf.fit(features, labels)
+        joblib.dump(self.clf, 'classifier.pkl')
         print "Training done, time elapsed: " + str(time.time()-t1)
 
     def test(self):
         #print "Testing SGD classifier"
         loader = self.loader
-        #self.clf = joblib.load('classifier.pkl')
+        self.clf = joblib.load('classifier.pkl')
         patching = self.patching
         accuracy = 0
         probabilities = []
@@ -84,8 +79,5 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    sgd.train(clf = linear_model.SGDClassifier(loss='modified_huber'))
-    sgd.test()
-    if hasattr(sgd.clf, 'coef_'):
-        plt.imshow(np.reshape(sgd.clf.coef_[0][::3], (7,7)))
-        plt.show()
+    sgd.train()
+    #sgd.test()

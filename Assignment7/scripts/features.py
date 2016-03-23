@@ -26,11 +26,11 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
     patches, coords = patching.patch(image)
     
     
-    #patches_border_dist = dist_to_border(patches, coords, image.shape)
+    patches_border_dist = dist_to_border(patches, coords, image.shape)
     
-    #patches_center_dist = dist_to_center(patches_border_dist, coords, image.shape)
+    patches_center_dist = dist_to_center(patches_border_dist, coords, image.shape)
     
-    #features = patches_center_dist#aanpassen als we vaker willen
+    features = patches_center_dist
     
 
     #patches, coords = remove_threshold(patches_center_dist, coords)  
