@@ -102,7 +102,7 @@ class loader():
         for i, image in enumerate(train_images):
             label = train_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
-            feature_vectors, labels = self.subsample(feature_vectors, labels)
+            #feature_vectors, labels = self.subsample(feature_vectors, labels)
             np.save(file_path + "train_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "train_labels_n" + str(i) + '.npy', labels)
             print i/len(train_images)

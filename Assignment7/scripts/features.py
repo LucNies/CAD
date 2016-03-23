@@ -25,12 +25,11 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
 
     patches, coords = patching.patch(image)
     
+    patches, coords = remove_threshold(patches, coords)  
     
     patches_border_dist = dist_to_border(patches, coords, image.shape)
     
-    patches_center_dist = dist_to_center(patches_border_dist, coords, image.shape)
-    
-    features = patches_center_dist
+    patches = dist_to_center(patches_border_dist, coords, image.shape)
     
 
     #patches, coords = remove_threshold(patches_center_dist, coords)  
@@ -53,7 +52,7 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
 """
 Removes pixels that are below the threshold from the feature vector
 """
-def remove_threshold(features, coords, t = 100):
+def remove_threshold(features, coords, t = 75):
     to_remove = []
     for i, feature in enumerate(features):
          if feature[len(feature)/6]<=t and feature[(len(feature)/2)]<=t and feature[5*(len(feature)/6)]<=t :
