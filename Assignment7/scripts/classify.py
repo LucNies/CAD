@@ -16,6 +16,7 @@ import load_data2 as load_data
 from features import get_features_labels
 from features import calc_dice
 import time
+from plot_images import plot
 
 class CLF:
 
@@ -44,20 +45,24 @@ class CLF:
         self.clf = joblib.load('classifier.pkl')
         patching = self.patching
         accuracy = 0
-        predictions = np.zeros((loader.test_size, patching.nmaxpatches))
-        labels = np.zeros((loader.test_size, patching.nmaxpatches))
+        predictions = []
+        labels = []
  
         print "Start Testing..."
         print "Test size = " + str(loader.test_size)
         while loader.test_i < loader.test_size:# not testloader.reset:
             feature_vector, label= loader.get_next_test_sample()
             prediction = self.clf.predict(feature_vector)#self.clf.decision_function(feature_vector)
-            predictions[loader.test_i-1] = prediction
-            labels[loader.test_i-1] = label
+            predictions.append(prediction)
+            labels.append(label)
+            print "Accuracy: " + str((prediction == label).sum()/label.size)
+            print "True positives:" +str((prediction+label == 2).sum()/label.sum())
             print str(loader.test_i/loader.test_size)
             
             #features = np.reshape(features, (-1, np.shape(features)[-1]))
             #print calc_dice(prediction, labels)
+        
+        """
         accuracy = np.zeros((10,))
         for i,t in enumerate(np.arange(0,1,0.1)):
             predictions = predictions >= t
@@ -65,6 +70,7 @@ class CLF:
             print "Accurracy: "+str((predictions == labels).sum()/labels.size)
             print "t={}, Mean error(dice): ".format(t) + str(accuracy[i])
         return np.argmin(accuracy), np.min(accuracy)
+        """
 
     def classify(self, image):
         """ Gives confidence score for given image
@@ -75,8 +81,7 @@ class CLF:
         prediction = self.clf.decision_function(features)
         return prediction
     
-    def save_prediction_image(self, classification, label):
-        print "lolz"
+
         
 
 if __name__ == "__main__":

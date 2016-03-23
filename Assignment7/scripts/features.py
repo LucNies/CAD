@@ -32,22 +32,38 @@ def get_features_labels(image, truth=None, patching=patcher.ImPatch()):
     
     #features = patches_center_dist#aanpassen als we vaker willen
     
+
+    patches, coords = remove_threshold(patches, coords)  
+
+    for (x,y) in coords:
+        labels.append(truth[x][y]>240)#Not really a binary image: contains values {0,1,244,255}
+    
+
+    
     shuffled = np.arange(len(patches))
     shuffle(shuffled)
     features = reorder(patches, shuffled)
-
-
-    for (x,y) in coords:
-        if(len(truth.shape)==3):
-            labels.append(truth[0][x][y])
-        else:
-            labels.append(truth[x][y])
     labels = reorder(labels, shuffled)
-    labels = [l>240 for l in labels] #Not really a binary image: contains values {0,1,244,255}
+     
+    
+     
     
     return features, labels
     
-
+"""
+Removes pixels that are below the threshold from the feature vector
+"""
+def remove_threshold(features, coords, t = 1):
+    to_remove = []
+    for i, feature in enumerate(features):
+         if feature[len(feature)/3/2]<=0 and feature[2*(len(feature)/3/2)]<=0 and feature[3*(len(feature)/3/2)]<=0 :
+             to_remove.append(i)
+            
+    np.delete(features, to_remove)
+    np.delete(coords, to_remove)
+    return features, coords
+             
+    
 """
 Do not use
 def train():
@@ -78,13 +94,6 @@ def test():
     #save_result_as_image(predictions, labels)
 
 """
-def remove_threshold(patches, labels, coords, t = 1):
-    toRemove = []
-    for i,patch in enumerate(patches):
-        if patch[0] < t: #find the correct indices of the middle pixel of al three channels
-            toRemove.append(i)
-    
-    return np.delete(patches, toRemove), np.delete(labels, toRemove), np.delete(labels, toRemove)
 
 
 def calc_dice(predictions, labels):
@@ -93,20 +102,6 @@ def calc_dice(predictions, labels):
     NNZ = np.sum((predictions + labels) != 0)
     return NNEQ/float(NNT+NNZ)
 
-
-"""
-Based on wikipedia: https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
-"""
-def calc_dice2(predictions, labels):
-    A = predictions.sum()
-    B = labels.sum()
-    temp = predictions == labels
-    for i,shared in enumerate(temp):
-        for j, s in enumerate(shared):
-            if s and (labels[i][j] == 1):
-                C=+1
-    
-    return 2*C/(A+B)
             
     
 def reorder(array, order):
@@ -147,6 +142,6 @@ def dist_to_center(patches, coords, image_shape):
 
 
 if __name__ == "__main__"  :
-    loader = load_data2.loader(first_run = False)
+    loader = load_data2.loader(first_run = True)
     images, labels = loader.get_test_data()
     get_features_labels(images[0], labels[0])

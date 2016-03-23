@@ -10,5 +10,5 @@ import matplotlib.pyplot as plt
 def plot(prediction, label):
     im = np.hstack((prediction, label))
     plt.figure();
-    plt.imshow(im, cmp = "Greys_r")
+    plt.imshow(im, cmap = "Greys_r")
     plt.show();
