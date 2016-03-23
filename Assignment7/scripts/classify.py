@@ -82,5 +82,7 @@ class CLF:
 
 if __name__ == "__main__":
     sgd = CLF()
-    sgd.train(clf = linear_model.SGDClassifier(loss='modified_huber'))
+    #sgd.train(clf = linear_model.SGDClassifier(loss='modified_huber'))
     sgd.test()
+    plt.imshow(np.reshape(sgd.clf.coef_[0][::3], (7,7)))
+    plt.show()
