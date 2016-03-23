@@ -96,7 +96,7 @@ def test():
 """
 
 
-def calc_dice(predictions, labelsi, similarity=True):
+def calc_dice(predictions, labels, similarity=True):
     NTT = np.sum(predictions * labels)
     if similarity:
         N = np.sum(predictions) + np.sum(labels)

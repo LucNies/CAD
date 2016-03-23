@@ -50,7 +50,7 @@ class CLF:
  
         print "Start Testing..."
         print "Test size = " + str(loader.test_size)
-        while loader.test_i < loader.test_size:# not testloader.reset:
+        while loader.test_i < loader.test_size:
             feature_vector, label= loader.get_next_test_sample()
             prediction = self.clf.predict(feature_vector)#self.clf.decision_function(feature_vector)
             predictions.append(prediction)

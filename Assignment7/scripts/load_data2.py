@@ -11,6 +11,7 @@ import os
 from scipy import misc
 
 import features
+from random import shuffle
 
 
 
@@ -116,17 +117,41 @@ class loader():
     def get_next_training_sample(self, file_path = '../features/'):
          features = np.load(file_path + 'train_features_n' + str(self.train_i) + '.npy')
          labels = np.load(file_path + 'train_labels_n' + str(self.train_i) + '.npy')
+         features, labels = self.subsample(features, labels)
          self.train_i =self.train_i+1
          return features, labels
         
     def get_next_test_sample(self, file_path = '../features/'):
          features = np.load(file_path + 'test_features_n' + str(self.test_i) + '.npy')
          labels = np.load(file_path + 'test_labels_n' + str(self.test_i) + '.npy')
+         features, labels = self.subsample(features, labels)
          self.test_i = self.test_i+1
          return features, labels
 
-        
-        
+    def subsample(self, objects, labels, ratio=1):
+        """Samples objects and corresponding labels such that sum(labels==0)=sum(labels==1)
+        :param objects: Objects to sample.
+        :param labels: Binary labels to weigh the sampling, are also sampled.
+        :return: Subsample of objects and corresponding labels
+        """
+        n1 = np.sum(labels)
+        n0 = np.size(labels,0) - n1
+        r = n0/n1
+
+        ind0 = np.where(1-labels)[0]
+        ind1 = np.nonzero(labels)[0]
+        if r > 0:
+            ind0 = np.random.choice(ind0, n1)
+        else:
+            ind1 = np.random.choice(ind1, n0)
+        oobj = np.vstack([objects[ind0,:], objects[ind1,:]])
+        olbl = np.append(labels[ind0], labels[ind1])
+        shuffled = np.arange(len(olbl))
+        shuffle(shuffled)
+        oobj = oobj[shuffled]
+        olbl = olbl[shuffled]
+
+        return oobj, olbl
 
 
 if __name__ == "__main__":
