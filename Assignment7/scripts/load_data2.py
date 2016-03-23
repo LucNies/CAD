@@ -102,6 +102,7 @@ class loader():
         for i, image in enumerate(train_images):
             label = train_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
+            features, labels = self.subsample(features, labels)
             np.save(file_path + "train_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "train_labels_n" + str(i) + '.npy', labels)
             print i/len(train_images)
@@ -110,6 +111,7 @@ class loader():
         for i, image in enumerate(test_images):
             label = test_labels[i]
             feature_vectors, labels = features.get_features_labels(image, label)
+            features, labels = self.subsample(features, labels)
             np.save(file_path + "test_features_n" + str(i) + '.npy', feature_vectors)
             np.save(file_path + "test_labels_n" + str(i) + '.npy', labels)
             print i/len(test_images)
@@ -117,14 +119,12 @@ class loader():
     def get_next_training_sample(self, file_path = '../features/'):
          features = np.load(file_path + 'train_features_n' + str(self.train_i) + '.npy')
          labels = np.load(file_path + 'train_labels_n' + str(self.train_i) + '.npy')
-         features, labels = self.subsample(features, labels)
          self.train_i =self.train_i+1
          return features, labels
         
     def get_next_test_sample(self, file_path = '../features/'):
          features = np.load(file_path + 'test_features_n' + str(self.test_i) + '.npy')
          labels = np.load(file_path + 'test_labels_n' + str(self.test_i) + '.npy')
-         features, labels = self.subsample(features, labels)
          self.test_i = self.test_i+1
          return features, labels
 
