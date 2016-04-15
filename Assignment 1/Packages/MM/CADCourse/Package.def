@@ -1,8 +1,0 @@
-
-Package {
-  packageGroup = "MM"
-  packageName  = "CADCourse"
-
-  owner = "DIAG Student"
-  description = "Test"
-}
