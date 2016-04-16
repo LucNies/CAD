@@ -224,7 +224,7 @@ class learn_mnist:
         plt.plot(zip(curves['train_loss'], curves['val_loss']));
         plt.savefig(file_path + name + 'loss.png')
         plt.plot(curves['val_acc']);
-        plt.plot(file_path + name + 'accuracy.png')
+        plt.savefig(file_path + name + 'accuracy.png')
         print "saved plots" 
         
 if __name__ == '__main__':
