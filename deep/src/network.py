@@ -19,13 +19,13 @@ import os
 
 dataset_dir = "../data/"
 
-class learn_mnist:
+class learn_cifar:
     
     def __init__(self, dataset_dir = "../data/", filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform(), n_epochs = 20, learning_rate = 0.01):
         self.dataset_dir = dataset_dir
-        self.prepare_trainings_data()
+        self.prepare_trainings_data(n_batches = 4)
         inputs, targets, network = self.create_network(filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform())
-        self.curves = self.training(inputs, targets, network, learning_rate = learning_rate)
+        self.curves = self.training(inputs, targets, network, n_epochs = 20, learning_rate = learning_rate)
 
     def prepare_trainings_data(self, n_batches = 4):
         # training set, batches 1-4
@@ -223,18 +223,20 @@ class learn_mnist:
         curves = self.curves
         plt.plot(zip(curves['train_loss'], curves['val_loss']));
         plt.savefig(file_path + name + 'loss.png')
+        plt.clf()
         plt.plot(curves['val_acc']);
         plt.savefig(file_path + name + 'accuracy.png')
+        plt.clf()
         print "saved plots" 
         
 if __name__ == '__main__':
     #find learning rate
     alphas = [0.001, 0.05, 0.01, 0.05, 0.1, 0.5]
-    
+
     for i in alphas:
-        network = learn_mnist(learning_rate = i)
+        network = learn_cifar(learning_rate = i)
         network.save_result(name = 'sgd-learning_rate{}'.format(i))
-        
+
         
         
         
