@@ -21,11 +21,13 @@ dataset_dir = "../data/"
 
 class learn_cifar:
     
-    def __init__(self, dataset_dir = "../data/", filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform(), n_epochs = 20, learning_rate = 0.01):
+    def __init__(self, dataset_dir = "../data/", filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform(), n_epochs = 20, learning_rate = 0.01, test=False, n_batches = 4):
         self.dataset_dir = dataset_dir
-        self.prepare_trainings_data(n_batches = 4)
+        self.prepare_trainings_data(n_batches = n_batches)
         inputs, targets, network = self.create_network(filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform())
-        self.curves = self.training(inputs, targets, network, n_epochs = 20, learning_rate = learning_rate)
+        self.curves, test_fn = self.training(inputs, targets, network, n_epochs = n_epochs, learning_rate = learning_rate)
+        if(test):            
+            self.run_test_set(test_fn)
 
     def prepare_trainings_data(self, n_batches = 4):
         # training set, batches 1-4
@@ -53,10 +55,40 @@ class learn_cifar:
         label_to_names = {k:v for k, v in zip(range(10), cifar_dict['label_names'])}
         f.close()
         
+        self.normalize_dataset()
         print("training set size: data = {}, labels = {}".format(self.train_X.shape, self.train_Y.shape))
         print("validation set size: data = {}, labels = {}".format(self.val_X.shape, self.val_Y.shape))
     
+    def normalize_dataset(self):
+        train_mean = np.mean(self.train_X)
+        train_std = np.std(self.train_X)
+        self.train_X = (self.train_X-train_mean)/train_std
+        self.val_X = (self.val_X-train_mean)/train_std#means and std are proabaly the same in the train and validationset
+        
     # take an array of shape (n, height, width) or (n, height, width, channels)
+
+    def run_test_set(self, test_fn):
+        with open(os.path.join(self.dataset_dir, "test_batch"), "rb") as f:
+            cifar_test_batch = pickle.load(f)
+        
+        inputs = T.tensor4('X')
+        targets = T.ivector('y')        
+        
+        test_X = (cifar_test_batch['data'].reshape(-1, 3, 32, 32) / 255.).astype("float32")
+        test_Y = np.array(cifar_test_batch['labels'], dtype='ubyte')
+        test_mean = np.mean(test_X)
+        test_std = np.std(test_X)
+        test_X = (test_X-test_mean)/test_std
+                
+        accuracy  = 0
+        for i, batch in enumerate(self.iterate_minibatches(test_X, test_Y, 500, shuffle=False)):
+           inputs, targets = batch
+           preds, err, acc = test_fn(inputs, targets)
+           accuracy += acc
+               
+        print "test set accuracy: " + str(accuracy/i)  +"%"
+        
+        
 
 # and visualize each (height, width) thing in a grid of size approx. sqrt(n) by sqrt(n)
     """
@@ -145,8 +177,13 @@ class learn_cifar:
         for start_idx in range(0, len(inputs) - batchsize + 1, batchsize):
             if shuffle:
                 excerpt = indices[start_idx:start_idx + batchsize]
+                #data augmentation
+                for idx in excerpt:
+                    if np.random.randint(2) > 0:                    
+                        inputs[idx]=np.fliplr(inputs[idx])
             else:
-                excerpt = slice(start_idx, start_idx + batchsize)
+                excerpt = slice(start_idx, start_idx + batchsize)      
+            
             yield inputs[excerpt], targets[excerpt]
 
 
@@ -215,9 +252,11 @@ class learn_cifar:
             curves['val_acc'].append(val_acc / val_batches)
     
         print "Total runtime: " +str(time.time()-begin)
-        return curves       
-        plt.plot(zip(curves['train_loss'], curves['val_loss']));
-        plt.plot(curves['val_acc']);
+        
+        return curves, val_fn 
+
+    
+        
     
     def save_result(self, file_path = '../plots/', name = ''):
         curves = self.curves
@@ -231,8 +270,10 @@ class learn_cifar:
         
 if __name__ == '__main__':
     #find learning rate
-    alphas = [0.001, 0.05, 0.01, 0.05, 0.1, 0.5]
+    #network = learn_cifar(n_batches = 1 , n_epochs = 3, test=True)
+    #network.save_result(name = 'sgd-learning_rate{}'.format(i))
 
+    alphas = [0.001, 0.05, 0.01, 0.05, 0.1]
     for i in alphas:
         network = learn_cifar(learning_rate = i)
         network.save_result(name = 'sgd-learning_rate{}'.format(i))
