@@ -127,7 +127,7 @@ class learn_cifar:
         plt.axis('off')
 
 
-    def create_network(self, filter_size = (5,5), learning_rate = 0.01, num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform()):
+    def create_network(self, filter_size = (4,4), learning_rate = 0.01, num_filters = 8, dense_units=128, weights = lasagne.init.GlorotUniform()):
         # First we define the symbolic input X and the symbolic target y. We want
         # to solve the equation y = C(X) where C is a classifier (convolutional network).
         inputs = T.tensor4('X')
@@ -135,21 +135,37 @@ class learn_cifar:
 
         # Input layer
         network = lasagne.layers.InputLayer(shape=(None, 3, 32, 32), input_var=inputs)
-                                    
+
+        print lasagne.layers.get_output_shape(network)
         # Convolutional layer
         network = lasagne.layers.Conv2DLayer(network, num_filters=num_filters, filter_size=filter_size, nonlinearity=lasagne.nonlinearities.rectify, W=weights)
+        print lasagne.layers.get_output_shape(network)
 
         # Max-pooling layer
-        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2))
+        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2), stride=2)
+        print lasagne.layers.get_output_shape(network)
 
         # Convolutional layer
         network = lasagne.layers.Conv2DLayer(
-                    network, num_filters=num_filters/2, filter_size=filter_size,
+                    network, num_filters=num_filters*2, filter_size=filter_size,
                     nonlinearity=lasagne.nonlinearities.rectify,
                     W=weights)
+        print lasagne.layers.get_output_shape(network)
 
         # Max-pooling layer
-        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(3, 3), stride=(2,2))
+        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
+        print lasagne.layers.get_output_shape(network)
+
+        # Convolutional layer
+        network = lasagne.layers.Conv2DLayer(
+            network, num_filters=num_filters*4, filter_size=filter_size,
+            nonlinearity=lasagne.nonlinearities.rectify,
+            W=weights)
+        print lasagne.layers.get_output_shape(network)
+
+        # Max-pooling layer
+        #network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
+        print lasagne.layers.get_output_shape(network)
 
         # Fully-connected (dense) layer
         network = lasagne.layers.DenseLayer(
@@ -157,12 +173,14 @@ class learn_cifar:
                     num_units=dense_units,
                     nonlinearity=lasagne.nonlinearities.rectify,
                     W=lasagne.init.Orthogonal())
+        print lasagne.layers.get_output_shape(network)
 
         # Soft-max layer
         network = lasagne.layers.DenseLayer(
                     network, num_units=10,
                     nonlinearity=lasagne.nonlinearities.softmax)
-        
+        print lasagne.layers.get_output_shape(network)
+
         return inputs, targets, network
 
 # ### Batch iterator ###
