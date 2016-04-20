@@ -21,10 +21,10 @@ dataset_dir = "../data/"
 
 class learn_cifar:
     
-    def __init__(self, dataset_dir = "../data/", filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform(), n_epochs = 20, learning_rate = 0.01, test=False, n_batches = 4):
+    def __init__(self, dataset_dir = "../data/", filter_size = (5,5), num_filters = 8, dense_units=32, weights = lasagne.init.GlorotUniform(), n_epochs = 20, learning_rate = 0.01, test=False, n_batches = 4):
         self.dataset_dir = dataset_dir
         self.prepare_trainings_data(n_batches = n_batches)
-        inputs, targets, network = self.create_network(filter_size = (5,5), num_filters = 32, dense_units=128, weights = lasagne.init.GlorotUniform())
+        inputs, targets, network = self.create_network(filter_size = filter_size, num_filters = num_filters, dense_units=dense_units, weights = weights)
         self.curves, test_fn = self.training(inputs, targets, network, n_epochs = n_epochs, learning_rate = learning_rate)
         if(test):            
             self.run_test_set(test_fn)
@@ -127,7 +127,7 @@ class learn_cifar:
         plt.axis('off')
 
 
-    def create_network(self, filter_size = (4,4), learning_rate = 0.01, num_filters = 8, dense_units=128, weights = lasagne.init.GlorotUniform()):
+    def create_network(self, filter_size = (4,4), learning_rate = 0.01, num_filters = 8, dense_units=32, weights = lasagne.init.GlorotUniform()):
         # First we define the symbolic input X and the symbolic target y. We want
         # to solve the equation y = C(X) where C is a classifier (convolutional network).
         inputs = T.tensor4('X')
@@ -142,7 +142,7 @@ class learn_cifar:
         print lasagne.layers.get_output_shape(network)
 
         # Max-pooling layer
-        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2), stride=2)
+        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2))
         print lasagne.layers.get_output_shape(network)
 
         # Convolutional layer
@@ -157,11 +157,13 @@ class learn_cifar:
         print lasagne.layers.get_output_shape(network)
 
         # Convolutional layer
+        """
         network = lasagne.layers.Conv2DLayer(
             network, num_filters=num_filters*4, filter_size=filter_size,
             nonlinearity=lasagne.nonlinearities.rectify,
             W=weights)
         print lasagne.layers.get_output_shape(network)
+        """
 
         # Max-pooling layer
         #network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
