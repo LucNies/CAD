@@ -127,7 +127,7 @@ class learn_cifar:
         plt.axis('off')
 
 
-    def create_network(self, filter_size = (4,4), learning_rate = 0.01, num_filters = 8, dense_units=32, weights = lasagne.init.GlorotUniform()):
+    def create_network(self, filter_size = (4,4), learning_rate = 0.01, num_filters = 8, dense_units=32, weights = lasagne.init.Normal):
         # First we define the symbolic input X and the symbolic target y. We want
         # to solve the equation y = C(X) where C is a classifier (convolutional network).
         inputs = T.tensor4('X')
@@ -144,6 +144,7 @@ class learn_cifar:
         # Max-pooling layer
         network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2))
         print lasagne.layers.get_output_shape(network)
+        #network = lasagne.layers.DropoutLayer(network,p=0.1,rescale=True)
 
         # Convolutional layer
         network = lasagne.layers.Conv2DLayer(
@@ -155,20 +156,27 @@ class learn_cifar:
         # Max-pooling layer
         network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
         print lasagne.layers.get_output_shape(network)
+        
+                #Dropout
+        #network = lasagne.layers.DropoutLayer(network,p=0.2,rescale=True)
 
         # Convolutional layer
-        """
+
         network = lasagne.layers.Conv2DLayer(
-            network, num_filters=num_filters*4, filter_size=filter_size,
+            network, num_filters=num_filters*4, filter_size=(3,3),
             nonlinearity=lasagne.nonlinearities.rectify,
             W=weights)
         print lasagne.layers.get_output_shape(network)
-        """
+
 
         # Max-pooling layer
-        #network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
+        network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2,2))
         print lasagne.layers.get_output_shape(network)
 
+                #Dropout
+        #
+        print lasagne.layers.get_output_shape(network)        
+        
         # Fully-connected (dense) layer
         network = lasagne.layers.DenseLayer(
                     network,
@@ -176,6 +184,8 @@ class learn_cifar:
                     nonlinearity=lasagne.nonlinearities.rectify,
                     W=lasagne.init.Orthogonal())
         print lasagne.layers.get_output_shape(network)
+        
+        network = lasagne.layers.DropoutLayer( network,p=0.5 ,rescale=True)
 
         # Soft-max layer
         network = lasagne.layers.DenseLayer(
@@ -219,7 +229,7 @@ class learn_cifar:
         # parameters at each training step. Here, we'll use Stochastic Gradient
         # Descent (SGD), but Lasagne offers plenty more.
         params = lasagne.layers.get_all_params(network, trainable=True)
-        updates = lasagne.updates.sgd(loss, params, learning_rate=learning_rate)
+        updates = lasagne.updates.nesterov_momentum(loss, params, learning_rate=learning_rate)
 
 
         test_prediction = lasagne.layers.get_output(network, deterministic=True)
@@ -290,14 +300,17 @@ class learn_cifar:
         
 if __name__ == '__main__':
     #find learning rate
-    #network = learn_cifar(n_batches = 1 , n_epochs = 3, test=True)
-    #network.save_result(name = 'sgd-learning_rate{}'.format(i))
 
+    i=0.0005
+    dense = 256
+    network = learn_cifar(learning_rate = i, num_filters = 32, n_epochs = 50, dense_units = dense, test=True)
+    network.save_result(name = 'final')
+"""
     alphas = [0.001, 0.05, 0.01, 0.05, 0.1]
     for i in alphas:
         network = learn_cifar(learning_rate = i)
-        network.save_result(name = 'sgd-learning_rate{}'.format(i))
-
+        network.save_result(name = 'nesterov-learning_rate{}'.format(i))
+"""
         
         
         
